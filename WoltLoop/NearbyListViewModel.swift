@@ -11,7 +11,7 @@ import Combine
 struct RestaurantViewModel: Identifiable {
     let id = UUID()
     let name: String
-    let shortDescription: String
+    let shortDescription: String?
     let imageUrl: String?
     var isFavourite: Bool
 }
@@ -33,23 +33,33 @@ final class NearbyListViewModel: ObservableObject {
     
     init() {
         self.restaurants =  mockRestaurants
-
+        
         self.serviceClient.searchRestaurantsNearby(location: Location(latitude: 60.170187, longitude: 24.930599))
             .receive(on: RunLoop.main)
             .prefix(15)
-            .sink { result in
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                
                 switch result {
                 case .success(let sections):
-                    sections.forEach { section in
-                        section.items[...14].forEach { restaurant in
-                            print("#################################")
-                            print(restaurant)
-                        }
-                    }
+                    self.restaurants = self.mapResponseToRestaurantViewModels(sections: sections)
                 case .failure(let error):
                     print(error)
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func mapResponseToRestaurantViewModels(sections: [Section]) -> [RestaurantViewModel] {
+        let restaurants = sections[0].items[...14]
+        let viewModels = restaurants.map { restaurant in
+            RestaurantViewModel(
+                name: restaurant.venue.name,
+                shortDescription: restaurant.venue.shortDescription,
+                imageUrl: restaurant.image.url,
+                isFavourite: false
+            )
+        }
+        return viewModels
     }
 }
