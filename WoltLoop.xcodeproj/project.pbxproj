@@ -42,14 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		97B3094B27DF4F3C00AA7953 /* Wolt Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wolt Loop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97B3094B27DF4F3C00AA7953 /* WoltLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoltLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopApp.swift; sourceTree = "<group>"; };
 		97B3095027DF4F3C00AA7953 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97B3095227DF4F3D00AA7953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		97B3095B27DF4F3D00AA7953 /* Wolt LoopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wolt LoopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopTests.swift; sourceTree = "<group>"; };
-		97B3096527DF4F3D00AA7953 /* Wolt LoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wolt LoopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITests.swift; sourceTree = "<group>"; };
 		97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		97B3097927DF55E800AA7953 /* NearbyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListView.swift; sourceTree = "<group>"; };
@@ -90,12 +90,9 @@
 		97B3094227DF4F3C00AA7953 = {
 			isa = PBXGroup;
 			children = (
-				97B3098627DF5F2800AA7953 /* Service */,
-				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
-				97B3097D27DF5A7200AA7953 /* Network */,
-				97B3094D27DF4F3C00AA7953 /* Wolt Loop */,
-				97B3095E27DF4F3D00AA7953 /* Wolt LoopTests */,
-				97B3096827DF4F3D00AA7953 /* Wolt LoopUITests */,
+				97B3094D27DF4F3C00AA7953 /* WoltLoop */,
+				97B3095E27DF4F3D00AA7953 /* WoltLoopTests */,
+				97B3096827DF4F3D00AA7953 /* WoltLoopUITests */,
 				97B3094C27DF4F3C00AA7953 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,16 +100,19 @@
 		97B3094C27DF4F3C00AA7953 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97B3094B27DF4F3C00AA7953 /* Wolt Loop.app */,
-				97B3095B27DF4F3D00AA7953 /* Wolt LoopTests.xctest */,
-				97B3096527DF4F3D00AA7953 /* Wolt LoopUITests.xctest */,
+				97B3094B27DF4F3C00AA7953 /* WoltLoop.app */,
+				97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */,
+				97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97B3094D27DF4F3C00AA7953 /* Wolt Loop */ = {
+		97B3094D27DF4F3C00AA7953 /* WoltLoop */ = {
 			isa = PBXGroup;
 			children = (
+				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
+				97B3098627DF5F2800AA7953 /* Service */,
+				97B3097D27DF5A7200AA7953 /* Network */,
 				97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */,
 				97B3095027DF4F3C00AA7953 /* ContentView.swift */,
 				97B3095227DF4F3D00AA7953 /* Assets.xcassets */,
@@ -120,7 +120,7 @@
 				97B3097927DF55E800AA7953 /* NearbyListView.swift */,
 				97B3097B27DF574300AA7953 /* NearbyListViewModel.swift */,
 			);
-			path = "Wolt Loop";
+			path = WoltLoop;
 			sourceTree = "<group>";
 		};
 		97B3095427DF4F3D00AA7953 /* Preview Content */ = {
@@ -131,21 +131,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		97B3095E27DF4F3D00AA7953 /* Wolt LoopTests */ = {
+		97B3095E27DF4F3D00AA7953 /* WoltLoopTests */ = {
 			isa = PBXGroup;
 			children = (
 				97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */,
 			);
-			path = "Wolt LoopTests";
+			path = WoltLoopTests;
 			sourceTree = "<group>";
 		};
-		97B3096827DF4F3D00AA7953 /* Wolt LoopUITests */ = {
+		97B3096827DF4F3D00AA7953 /* WoltLoopUITests */ = {
 			isa = PBXGroup;
 			children = (
 				97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */,
 				97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */,
 			);
-			path = "Wolt LoopUITests";
+			path = WoltLoopUITests;
 			sourceTree = "<group>";
 		};
 		97B3097D27DF5A7200AA7953 /* Network */ = {
@@ -170,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		97B3094A27DF4F3C00AA7953 /* Wolt Loop */ = {
+		97B3094A27DF4F3C00AA7953 /* WoltLoop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97B3096F27DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt Loop" */;
+			buildConfigurationList = 97B3096F27DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoop" */;
 			buildPhases = (
 				97B3094727DF4F3C00AA7953 /* Sources */,
 				97B3094827DF4F3C00AA7953 /* Frameworks */,
@@ -182,14 +182,14 @@
 			);
 			dependencies = (
 			);
-			name = "Wolt Loop";
+			name = WoltLoop;
 			productName = "Wolt Loop";
-			productReference = 97B3094B27DF4F3C00AA7953 /* Wolt Loop.app */;
+			productReference = 97B3094B27DF4F3C00AA7953 /* WoltLoop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		97B3095A27DF4F3D00AA7953 /* Wolt LoopTests */ = {
+		97B3095A27DF4F3D00AA7953 /* WoltLoopTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97B3097227DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt LoopTests" */;
+			buildConfigurationList = 97B3097227DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopTests" */;
 			buildPhases = (
 				97B3095727DF4F3D00AA7953 /* Sources */,
 				97B3095827DF4F3D00AA7953 /* Frameworks */,
@@ -200,14 +200,14 @@
 			dependencies = (
 				97B3095D27DF4F3D00AA7953 /* PBXTargetDependency */,
 			);
-			name = "Wolt LoopTests";
+			name = WoltLoopTests;
 			productName = "Wolt LoopTests";
-			productReference = 97B3095B27DF4F3D00AA7953 /* Wolt LoopTests.xctest */;
+			productReference = 97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		97B3096427DF4F3D00AA7953 /* Wolt LoopUITests */ = {
+		97B3096427DF4F3D00AA7953 /* WoltLoopUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt LoopUITests" */;
+			buildConfigurationList = 97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopUITests" */;
 			buildPhases = (
 				97B3096127DF4F3D00AA7953 /* Sources */,
 				97B3096227DF4F3D00AA7953 /* Frameworks */,
@@ -218,9 +218,9 @@
 			dependencies = (
 				97B3096727DF4F3D00AA7953 /* PBXTargetDependency */,
 			);
-			name = "Wolt LoopUITests";
+			name = WoltLoopUITests;
 			productName = "Wolt LoopUITests";
-			productReference = 97B3096527DF4F3D00AA7953 /* Wolt LoopUITests.xctest */;
+			productReference = 97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -259,9 +259,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97B3094A27DF4F3C00AA7953 /* Wolt Loop */,
-				97B3095A27DF4F3D00AA7953 /* Wolt LoopTests */,
-				97B3096427DF4F3D00AA7953 /* Wolt LoopUITests */,
+				97B3094A27DF4F3C00AA7953 /* WoltLoop */,
+				97B3095A27DF4F3D00AA7953 /* WoltLoopTests */,
+				97B3096427DF4F3D00AA7953 /* WoltLoopUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -332,12 +332,12 @@
 /* Begin PBXTargetDependency section */
 		97B3095D27DF4F3D00AA7953 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 97B3094A27DF4F3C00AA7953 /* Wolt Loop */;
+			target = 97B3094A27DF4F3C00AA7953 /* WoltLoop */;
 			targetProxy = 97B3095C27DF4F3D00AA7953 /* PBXContainerItemProxy */;
 		};
 		97B3096727DF4F3D00AA7953 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 97B3094A27DF4F3C00AA7953 /* Wolt Loop */;
+			target = 97B3094A27DF4F3C00AA7953 /* WoltLoop */;
 			targetProxy = 97B3096627DF4F3D00AA7953 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -466,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wolt Loop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WoltLoop/Preview Content\"";
 				DEVELOPMENT_TEAM = 8EYXQH5NTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -495,7 +495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wolt Loop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WoltLoop/Preview Content\"";
 				DEVELOPMENT_TEAM = 8EYXQH5NTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -538,7 +538,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wolt Loop.app/Wolt Loop";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WoltLoop.app/WoltLoop";
 			};
 			name = Debug;
 		};
@@ -563,7 +563,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wolt Loop.app/Wolt Loop";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WoltLoop.app/WoltLoop";
 			};
 			name = Release;
 		};
@@ -625,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97B3096F27DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt Loop" */ = {
+		97B3096F27DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97B3097027DF4F3D00AA7953 /* Debug */,
@@ -634,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97B3097227DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt LoopTests" */ = {
+		97B3097227DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97B3097327DF4F3D00AA7953 /* Debug */,
@@ -643,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "Wolt LoopUITests" */ = {
+		97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97B3097627DF4F3D00AA7953 /* Debug */,
