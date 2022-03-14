@@ -1,5 +1,5 @@
 //
-//  Wolt_LoopUITestsLaunchTests.swift
+//  WoltLoopUITestsLaunchTests.swift
 //  Wolt LoopUITests
 //
 //  Created by Tom Jaroli on 2022. 03. 14..
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Wolt_LoopUITestsLaunchTests: XCTestCase {
+class WoltLoopUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -1,0 +1,118 @@
+//
+//  NetworkProvider.swift
+//  Wolt Loop
+//
+//  Created by Tom Jaroli on 2022. 03. 14..
+//
+
+import Foundation
+import Combine
+import os.log
+
+extension NetworkProvider {
+    enum URLError: Error {
+        case couldNotBuildURLComponents(partialURL: URL)
+        case couldNotBuildURL(partialURL: URL, parameters: [String: String]?)
+    }
+}
+
+class NetworkProvider<E: Endpoint> {
+    private let decoder: JSONDecoder
+    private let session: URLSession
+    private let errorLogger: ErrorLogger
+    
+    public init(
+        decoder: JSONDecoder = .init(),
+        session: URLSession = URLSession.shared,
+        errorLogger: ErrorLogger = OSErrorLogger()
+    ) {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        self.decoder = decoder
+        self.session = session
+        self.errorLogger = errorLogger
+    }
+    
+    internal func makeURL(for endpoint: E) -> URL? {
+        var partialURL = endpoint.baseURL.appendingPathComponent(endpoint.apiVersion)
+        partialURL = partialURL.appendingPathComponent(endpoint.path)
+        
+        guard var components = URLComponents(url: partialURL, resolvingAgainstBaseURL: false) else {
+            errorLogger.log(URLError.couldNotBuildURLComponents(partialURL: partialURL))
+            return nil
+        }
+        
+        if let parameters = endpoint.parameters {
+            var queryItems = [URLQueryItem]()
+            parameters.forEach { queryItems.append(URLQueryItem(name: $0.key, value: $0.value))}
+            components.queryItems = queryItems
+        }
+        
+        guard let url = components.url else {
+            errorLogger.log(URLError.couldNotBuildURL(partialURL: partialURL, parameters: endpoint.parameters))
+            return nil
+        }
+        
+        return url
+    }
+    
+    internal func makeRequest(for endpoint: E) -> URLRequest? {
+        guard let url = makeURL(for: endpoint) else { return nil }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.rawValue
+        
+        return request
+    }
+    
+    internal func configureSession(for endpoint: E) -> URLSessionConfiguration {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = endpoint.headers
+        configuration.urlCache = .shared
+        configuration.requestCachePolicy = .reloadRevalidatingCacheData
+        configuration.timeoutIntervalForRequest = 60
+        configuration.timeoutIntervalForResource = 120
+        return configuration
+    }
+    
+    internal func request<T: Decodable>(endpoint: E) -> AnyPublisher<Result<T, NetworkError>, Never> {
+        guard let request = makeRequest(for: endpoint) else {
+            return Just(.failure(NetworkError.invalidRequest))
+                .eraseToAnyPublisher()
+        }
+        
+        return session.dataTaskPublisher(for: request)
+            .mapError { _ in return NetworkError.invalidRequest }
+            .flatMap { data, response -> AnyPublisher<Data, Error> in
+                self.processResponse(data: data, response: response)
+            }
+            .decode(type: T.self, decoder: decoder)
+            .map { .success($0) }
+            .catch({ error -> AnyPublisher<Result<T, NetworkError>, Never> in
+                return Just(.failure(NetworkError.parseError(reason: error)))
+                    .eraseToAnyPublisher()
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    private func processResponse(data: Data, response: URLResponse) -> AnyPublisher<Data, Error> {
+        guard let response = response as? HTTPURLResponse else {
+            return Fail(error: NetworkError.invalidResponse)
+                .eraseToAnyPublisher()
+        }
+        
+        if response.statusCode == 404 {
+            return Fail(error: NetworkError.message(reason: "Resource not found", statusCode: response.statusCode, data: data))
+                .eraseToAnyPublisher()
+        }
+        
+        guard 200..<300 ~= response.statusCode else {
+            let message = response.description
+            return Fail(error: NetworkError.message(reason: message, statusCode: response.statusCode, data: data))
+                .eraseToAnyPublisher()
+        }
+        
+        return Just<Data>(data)
+            .mapError({ _ in NetworkError.unknown })
+            .eraseToAnyPublisher()
+    }
+}

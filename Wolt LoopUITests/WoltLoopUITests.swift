@@ -1,5 +1,5 @@
 //
-//  Wolt_LoopUITests.swift
+//  WoltLoopUITests.swift
 //  Wolt LoopUITests
 //
 //  Created by Tom Jaroli on 2022. 03. 14..
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Wolt_LoopUITests: XCTestCase {
+class WoltLoopUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

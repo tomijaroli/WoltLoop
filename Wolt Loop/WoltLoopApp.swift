@@ -1,6 +1,6 @@
 //
-//  Wolt_LoopApp.swift
-//  Wolt Loop
+//  WoltLoopApp.swift
+//  WoltLoop
 //
 //  Created by Tom Jaroli on 2022. 03. 14..
 //
@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct Wolt_LoopApp: App {
+struct WoltLoopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NearbyListView()
+                .padding()
         }
     }
 }
