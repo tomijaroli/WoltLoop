@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 struct Location {
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
 }
 
 protocol RestaurantService {

@@ -8,7 +8,7 @@
 import Foundation
 
 enum RestaurantsEndpoint {
-    case nearby(latitude: Float, longitude: Float)
+    case nearby(latitude: Double, longitude: Double)
 }
 
 extension RestaurantsEndpoint: Endpoint {

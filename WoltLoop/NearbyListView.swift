@@ -11,10 +11,13 @@ struct NearbyListView: View {
     @StateObject var viewModel = NearbyListViewModel()
     
     var body: some View {
-        List(viewModel.restaurants) { restaurant in
-            Text(restaurant.name)
+        VStack {
+            List(viewModel.restaurants) { restaurant in
+                Text(restaurant.name)
+            }
+            .listStyle(PlainListStyle())
         }
-        .listStyle(PlainListStyle())
+        .onAppear(perform: viewModel.startRotating)
     }
 }
 
