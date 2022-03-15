@@ -12,7 +12,6 @@ struct WoltLoopApp: App {
     var body: some Scene {
         WindowGroup {
             NearbyListView()
-                .padding()
         }
     }
 }

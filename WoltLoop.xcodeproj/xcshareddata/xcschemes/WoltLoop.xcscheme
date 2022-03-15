@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97B3094A27DF4F3C00AA7953"
-               BuildableName = "Wolt Loop.app"
+               BuildableName = "WoltLoop.app"
                BlueprintName = "WoltLoop"
                ReferencedContainer = "container:WoltLoop.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97B3095A27DF4F3D00AA7953"
-               BuildableName = "Wolt LoopTests.xctest"
+               BuildableName = "WoltLoopTests.xctest"
                BlueprintName = "WoltLoopTests"
                ReferencedContainer = "container:WoltLoop.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97B3096427DF4F3D00AA7953"
-               BuildableName = "Wolt LoopUITests.xctest"
+               BuildableName = "WoltLoopUITests.xctest"
                BlueprintName = "WoltLoopUITests"
                ReferencedContainer = "container:WoltLoop.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97B3094A27DF4F3C00AA7953"
-            BuildableName = "Wolt Loop.app"
+            BuildableName = "WoltLoop.app"
             BlueprintName = "WoltLoop"
             ReferencedContainer = "container:WoltLoop.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97B3094A27DF4F3C00AA7953"
-            BuildableName = "Wolt Loop.app"
+            BuildableName = "WoltLoop.app"
             BlueprintName = "WoltLoop"
             ReferencedContainer = "container:WoltLoop.xcodeproj">
          </BuildableReference>

@@ -10,14 +10,27 @@ import SwiftUI
 struct NearbyListView: View {
     @StateObject var viewModel = NearbyListViewModel()
     
+    init() {
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     var body: some View {
         VStack {
-            List(viewModel.restaurants) { restaurant in
-                Text(restaurant.name)
+            NavigationView {
+                VStack {
+                    List(viewModel.restaurants) { restaurant in
+                        NearbyRestaurantListItemView(
+                            restaurantViewModel: restaurant,
+                            markAsFavourite: viewModel.markRestaurantFavourite(restaurant:)
+                        )
+                            .padding(0)
+                    }
+                    .listStyle(.plain)
+                    .listRowSeparator(.hidden)
+                }
+                .navigationTitle("Restaurants")
             }
-            .listStyle(PlainListStyle())
         }
-        .onAppear(perform: viewModel.startRotating)
     }
 }
 

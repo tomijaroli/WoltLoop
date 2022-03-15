@@ -8,22 +8,24 @@
 import Foundation
 import Combine
 
-struct RestaurantViewModel: Identifiable {
-    let id = UUID()
+class RestaurantViewModel: ObservableObject, Identifiable {
+    let id: String
     let name: String
     let shortDescription: String?
-    let imageUrl: String?
-    var isFavourite: Bool
+    var imageUrl: URL?
+    @Published var isFavourite: Bool
+    
+    init(id: String, name: String, shortDescription: String?, imageUrl: String?, isFavourite: Bool) {
+        self.id = id
+        self.name = name
+        self.shortDescription = shortDescription
+        self.isFavourite = isFavourite
+        
+        if let imageUrlString = imageUrl, !imageUrlString.isEmpty {
+            self.imageUrl = URL(string: imageUrlString)
+        }
+    }
 }
-
-let mockRestaurants = [
-    RestaurantViewModel(name: "McDonald's", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false),
-    RestaurantViewModel(name: "Burger King", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false),
-    RestaurantViewModel(name: "Kolme Kruunua", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false),
-    RestaurantViewModel(name: "KFC", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false),
-    RestaurantViewModel(name: "Sushi Bar", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false),
-    RestaurantViewModel(name: "Fat Ramen Kallio", shortDescription: "I'm lovin it", imageUrl: nil, isFavourite: false)
-]
 
 let coordinates = [
     (60.170187, 24.930599),
@@ -41,6 +43,9 @@ let coordinates = [
 final class NearbyListViewModel: ObservableObject {
     @Published var restaurants: [RestaurantViewModel]
     
+    @UserDefault(key: "favourite_restaurants", defaultValue: [])
+    private var favourites: [String]
+    
     private let serviceClient = RestaurantServiceClient()
     private var cancellables = Set<AnyCancellable>()
     
@@ -53,10 +58,12 @@ final class NearbyListViewModel: ObservableObject {
     
     init() {
         self.restaurants =  mockRestaurants
+        searchNearbyRestaurants()
+        startRotating()
     }
     
     func startRotating() {
-        timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
             self.rotateCoordinates()
         }
     }
@@ -76,11 +83,27 @@ final class NearbyListViewModel: ObservableObject {
                 switch result {
                 case .success(let sections):
                     self.restaurants = self.mapResponseToRestaurantViewModels(sections: sections)
+                    self.restaurants.filter {
+                        self.favourites.contains($0.id)
+                    }
+                    .forEach {
+                        $0.isFavourite = true
+                    }
                 case .failure(let error):
                     print(error)
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func markRestaurantFavourite(restaurant: RestaurantViewModel) {
+        print("Favourite pressed")
+        if restaurant.isFavourite {
+            favourites = favourites.filter { $0 != restaurant.id }
+        } else {
+            favourites.append(restaurant.id)
+        }
+        restaurant.isFavourite.toggle()
     }
     
     @objc
@@ -94,8 +117,10 @@ final class NearbyListViewModel: ObservableObject {
     
     private func mapResponseToRestaurantViewModels(sections: [Section]) -> [RestaurantViewModel] {
         let restaurants = sections[0].items[...14]
-        let viewModels = restaurants.map { restaurant in
-            RestaurantViewModel(
+        print(restaurants)
+        let viewModels = restaurants.map { restaurant -> RestaurantViewModel in
+            return RestaurantViewModel(
+                id: restaurant.venue.id,
                 name: restaurant.venue.name,
                 shortDescription: restaurant.venue.shortDescription,
                 imageUrl: restaurant.image.url,
