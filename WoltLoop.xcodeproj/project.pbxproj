@@ -22,13 +22,14 @@
 		97A03F9B27E0CE54005B3164 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 97A03F9A27E0CE54005B3164 /* Swinject */; };
 		97A03F9E27E0CE68005B3164 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 97A03F9D27E0CE68005B3164 /* SwinjectAutoregistration */; };
 		97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */; };
+		97A03FA827E0DB5C005B3164 /* PreviewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FA727E0DB5C005B3164 /* PreviewBuilder.swift */; };
 		97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */; };
 		97B3095327DF4F3D00AA7953 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095227DF4F3D00AA7953 /* Assets.xcassets */; };
 		97B3095627DF4F3D00AA7953 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */; };
 		97B3096027DF4F3D00AA7953 /* WoltLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */; };
 		97B3096A27DF4F3D00AA7953 /* WoltLoopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */; };
 		97B3096C27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */; };
-		97B3097A27DF55E800AA7953 /* NearbyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097927DF55E800AA7953 /* NearbyListView.swift */; };
+		97B3097A27DF55E800AA7953 /* NearbyRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097927DF55E800AA7953 /* NearbyRestaurantsView.swift */; };
 		97B3097C27DF574300AA7953 /* NearbyRestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097B27DF574300AA7953 /* NearbyRestaurantsViewModel.swift */; };
 		97B3097F27DF5A7B00AA7953 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097E27DF5A7B00AA7953 /* Endpoint.swift */; };
 		97B3098127DF5A8F00AA7953 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098027DF5A8F00AA7953 /* NetworkError.swift */; };
@@ -71,6 +72,7 @@
 		9792A4A827E0BEE100C6B9DC /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		9792A4AA27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRestaurantsUseCase.swift; sourceTree = "<group>"; };
 		97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsAssembly.swift; sourceTree = "<group>"; };
+		97A03FA727E0DB5C005B3164 /* PreviewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewBuilder.swift; sourceTree = "<group>"; };
 		97B3094B27DF4F3C00AA7953 /* WoltLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoltLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopApp.swift; sourceTree = "<group>"; };
 		97B3095227DF4F3D00AA7953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITests.swift; sourceTree = "<group>"; };
 		97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		97B3097927DF55E800AA7953 /* NearbyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListView.swift; sourceTree = "<group>"; };
+		97B3097927DF55E800AA7953 /* NearbyRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsView.swift; sourceTree = "<group>"; };
 		97B3097B27DF574300AA7953 /* NearbyRestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsViewModel.swift; sourceTree = "<group>"; };
 		97B3097E27DF5A7B00AA7953 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		97B3098027DF5A8F00AA7953 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 		9792A49127E09DCA00C6B9DC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				97B3097927DF55E800AA7953 /* NearbyListView.swift */,
+				97B3097927DF55E800AA7953 /* NearbyRestaurantsView.swift */,
 				97B3097B27DF574300AA7953 /* NearbyRestaurantsViewModel.swift */,
 				97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */,
 				9792A4A827E0BEE100C6B9DC /* RestaurantViewModel.swift */,
@@ -247,12 +249,12 @@
 		97B3094D27DF4F3C00AA7953 /* WoltLoop */ = {
 			isa = PBXGroup;
 			children = (
-				9792A4AF27E0CB0400C6B9DC /* Wrappers */,
 				9792A4A527E0B88500C6B9DC /* App */,
+				9792A4AD27E0CA7200C6B9DC /* Resources */,
 				9792A4AE27E0CA8100C6B9DC /* Core */,
 				9792A49027E09B7C00C6B9DC /* NearbyRestaurants */,
+				9792A4AF27E0CB0400C6B9DC /* Wrappers */,
 				97B3095427DF4F3D00AA7953 /* Preview Content */,
-				9792A4AD27E0CA7200C6B9DC /* Resources */,
 			);
 			path = WoltLoop;
 			sourceTree = "<group>";
@@ -262,6 +264,7 @@
 			children = (
 				97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */,
 				97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */,
+				97A03FA727E0DB5C005B3164 /* PreviewBuilder.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -445,9 +448,10 @@
 				97B3098327DF5AAA00AA7953 /* NetworkProvider.swift in Sources */,
 				9792A4A427E0B77D00C6B9DC /* RestaurantServiceError.swift in Sources */,
 				9792A4AB27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift in Sources */,
+				97A03FA827E0DB5C005B3164 /* PreviewBuilder.swift in Sources */,
 				97B3097C27DF574300AA7953 /* NearbyRestaurantsViewModel.swift in Sources */,
 				9792A4A727E0B89A00C6B9DC /* LocationProvider.swift in Sources */,
-				97B3097A27DF55E800AA7953 /* NearbyListView.swift in Sources */,
+				97B3097A27DF55E800AA7953 /* NearbyRestaurantsView.swift in Sources */,
 				97C9975E27DFA220003F02E1 /* NearbyRestaurantListItemView.swift in Sources */,
 				9792A49927E0B6DF00C6B9DC /* NearbyRestaurantsResponse.swift in Sources */,
 				9792A49D27E0B70400C6B9DC /* Restaurant.swift in Sources */,

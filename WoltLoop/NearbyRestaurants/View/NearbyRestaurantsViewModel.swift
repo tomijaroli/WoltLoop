@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-final class NearbyRestaurantsViewModel: ObservableObject {
+class NearbyRestaurantsViewModel: ObservableObject {
+    @Published var pageTitle: String = "Restaurants"
     @Published var restaurants: [RestaurantViewModel] = []
     
     private var cancellables = Set<AnyCancellable>()

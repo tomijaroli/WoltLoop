@@ -14,12 +14,12 @@ struct WoltLoopApp: App {
     
     init() {
         self.assembler = Assembler([NearbyRestaurantAssembly()])
+        PreviewBuilder.shared.setup(with: assembler)
     }
     
     var body: some Scene {
         WindowGroup {
-            NearbyListView()
-                .environmentObject(assembler.resolver.resolve(NearbyRestaurantsViewModel.self)!)
+            NearbyRestaurantsView(viewModel: assembler.resolver.resolve(NearbyRestaurantsViewModel.self)!)
         }
     }
 }
