@@ -12,7 +12,8 @@ struct NearbyListView: View {
         nearbyRestaurantsUseCase: LiveNearbyRestaurantsUseCase(
             restaurantsServiceClient: RestaurantServiceClient()
         ),
-        locationProvider: LoopedLocationProvider()
+        locationProvider: LoopedLocationProvider(),
+        favouriteRestaurantsUseCase: LiveFavouritesRestaurantsUseCase()
     )
     
     init() {
