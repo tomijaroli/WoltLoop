@@ -116,6 +116,7 @@
 		9792A49027E09B7C00C6B9DC /* NearbyRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				97B3098627DF5F2800AA7953 /* Service */,
 				9792A49227E09DD500C6B9DC /* UseCase */,
 				9792A49127E09DCA00C6B9DC /* View */,
 			);
@@ -173,6 +174,41 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		9792A4AC27E0CA5500C6B9DC /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9792A4A627E0B89A00C6B9DC /* LocationProvider.swift */,
+				9792A49527E0A18A00C6B9DC /* Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		9792A4AD27E0CA7200C6B9DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97B3095227DF4F3D00AA7953 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9792A4AE27E0CA8100C6B9DC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
+				97B3097D27DF5A7200AA7953 /* Network */,
+				9792A4AC27E0CA5500C6B9DC /* Location */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9792A4AF27E0CB0400C6B9DC /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				9792A48E27DFB52A00C6B9DC /* UserDefaultsWrapper.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
 		97B3094227DF4F3C00AA7953 = {
 			isa = PBXGroup;
 			children = (
@@ -196,16 +232,12 @@
 		97B3094D27DF4F3C00AA7953 /* WoltLoop */ = {
 			isa = PBXGroup;
 			children = (
+				9792A4AF27E0CB0400C6B9DC /* Wrappers */,
 				9792A4A527E0B88500C6B9DC /* App */,
-				9792A49527E0A18A00C6B9DC /* Location.swift */,
+				9792A4AE27E0CA8100C6B9DC /* Core */,
 				9792A49027E09B7C00C6B9DC /* NearbyRestaurants */,
-				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
-				97B3098627DF5F2800AA7953 /* Service */,
-				97B3097D27DF5A7200AA7953 /* Network */,
-				97B3095227DF4F3D00AA7953 /* Assets.xcassets */,
 				97B3095427DF4F3D00AA7953 /* Preview Content */,
-				9792A48E27DFB52A00C6B9DC /* UserDefaultsWrapper.swift */,
-				9792A4A627E0B89A00C6B9DC /* LocationProvider.swift */,
+				9792A4AD27E0CA7200C6B9DC /* Resources */,
 			);
 			path = WoltLoop;
 			sourceTree = "<group>";
