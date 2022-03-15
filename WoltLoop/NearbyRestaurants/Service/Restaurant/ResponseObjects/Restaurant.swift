@@ -9,6 +9,5 @@ import Foundation
 
 struct Restaurant: Codable {
     let image: RestaurantImage
-    let title: String
     let venue: Venue
 }

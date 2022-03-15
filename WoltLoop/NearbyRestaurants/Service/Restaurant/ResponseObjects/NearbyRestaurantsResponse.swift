@@ -8,6 +8,5 @@
 import Foundation
 
 struct NearbyRestaurantsResponse: Codable {
-    let pageTitle: String
     let sections: [Section]
 }

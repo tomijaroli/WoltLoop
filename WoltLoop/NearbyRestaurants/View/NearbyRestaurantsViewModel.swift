@@ -28,6 +28,7 @@ class NearbyRestaurantsViewModel: ObservableObject {
         self.favouriteRestaurantsUseCase = favouriteRestaurantsUseCase
         
         locationProvider.locationPublisher.sink { location in
+            print("######## New location received on view model ########")
             nearbyRestaurantsUseCase.searchRestaurantsNearby(location: location)
                 .receive(on: RunLoop.main)
                 .sink { completion in

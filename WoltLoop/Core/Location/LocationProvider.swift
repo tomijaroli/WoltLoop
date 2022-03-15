@@ -32,12 +32,13 @@ final class LoopedLocationProvider {
     
     @objc
     private func rotateCoordinates() {
+        print("######## New location requested ########")
         if currentCoordinateIndex + 1 == coordinates.count {
             currentCoordinateIndex = 0
         } else {
             currentCoordinateIndex += 1
         }
-        
+        print("######## New coordinate index is \(currentCoordinateIndex) ########")
         currentLocationSubject.send(coordinates[currentCoordinateIndex])
     }
 }
