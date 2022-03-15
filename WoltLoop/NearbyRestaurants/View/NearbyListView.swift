@@ -11,7 +11,8 @@ struct NearbyListView: View {
     @StateObject var viewModel = NearbyRestaurantsViewModel(
         nearbyRestaurantsUseCase: LiveNearbyRestaurantsUseCase(
             restaurantsServiceClient: RestaurantServiceClient()
-        )
+        ),
+        locationProvider: LoopedLocationProvider()
     )
     
     init() {

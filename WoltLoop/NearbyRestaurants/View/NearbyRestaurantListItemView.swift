@@ -26,10 +26,12 @@ struct NearbyRestaurantListItemView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(restaurantViewModel.name)
                             .font(.headline)
+                            .lineLimit(1)
                         restaurantViewModel.shortDescription.map { shortDescription in
                             Text(shortDescription)
                                 .font(.body)
                                 .foregroundColor(.secondary)
+                                .lineLimit(1)
                         }
                     }
                  
