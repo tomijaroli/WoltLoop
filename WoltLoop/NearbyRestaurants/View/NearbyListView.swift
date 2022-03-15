@@ -35,7 +35,7 @@ struct NearbyListView: View {
                 .navigationTitle("Restaurants")
             }
         }
-        .animation(.default)
+        .animation(.default, value: viewModel.restaurants)
     }
 }
 

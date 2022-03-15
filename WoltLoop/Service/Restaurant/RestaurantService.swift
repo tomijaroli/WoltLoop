@@ -8,24 +8,20 @@
 import Foundation
 import Combine
 
-enum RestaruantServiceError: Error {
-    case networkError
-}
-
 protocol RestaurantService {
     func searchRestaurantsNearby(location: Location) -> AnyPublisher<[Section], RestaruantServiceError>
 }
 
 class RestaurantServiceClient {
     private let networking: NetworkProvider<RestaurantsEndpoint>
-//    private let scheduler: SchedulerProtocol
+    //    private let scheduler: SchedulerProtocol
     
     init(
         networking: NetworkProvider<RestaurantsEndpoint> = NetworkProvider()
-//        scheduler: SchedulerProtocol = Scheduler()
-        ) {
+        //        scheduler: SchedulerProtocol = Scheduler()
+    ) {
         self.networking = networking
-//        self.scheduler = scheduler
+        //        self.scheduler = scheduler
     }
 }
 
@@ -42,34 +38,4 @@ extension RestaurantServiceClient: RestaurantService {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-}
-
-struct NearbyRestaurantsResponse: Codable {
-    let pageTitle: String
-    let sections: [Section]
-}
-
-struct Section: Codable {
-    let items: [Restaurant]
-}
-
-struct Restaurant: Codable {
-    let image: RestaurantImage
-    let title: String
-    let venue: Venue
-}
-
-struct RestaurantImage: Codable {
-    let url: String
-}
-
-struct Venue: Codable {
-    let address: String
-    let currency: String
-    let deliveryPrice: String
-    let estimate: Int
-    let id: String
-    let location: [Float]
-    let name: String
-    let shortDescription: String?
 }

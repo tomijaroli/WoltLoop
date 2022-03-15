@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-class RestaurantViewModel: ObservableObject, Identifiable {
+class RestaurantViewModel: ObservableObject, Identifiable, Equatable {
+    static func == (lhs: RestaurantViewModel, rhs: RestaurantViewModel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
+    
     let id: String
     let name: String
     let shortDescription: String?
@@ -129,20 +133,5 @@ final class NearbyRestaurantsViewModel: ObservableObject {
         } else {
             currentCoordinateIndex += 1
         }
-    }
-    
-    private func mapResponseToRestaurantViewModels(sections: [Section]) -> [RestaurantViewModel] {
-        let restaurants = sections[0].items[...14]
-        print(restaurants)
-        let viewModels = restaurants.map { restaurant -> RestaurantViewModel in
-            return RestaurantViewModel(
-                id: restaurant.venue.id,
-                name: restaurant.venue.name,
-                shortDescription: restaurant.venue.shortDescription,
-                imageUrl: restaurant.image.url,
-                isFavourite: false
-            )
-        }
-        return viewModels
     }
 }
