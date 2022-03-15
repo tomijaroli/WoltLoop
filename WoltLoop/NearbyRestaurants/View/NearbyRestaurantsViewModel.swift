@@ -1,5 +1,5 @@
 //
-//  NearbyListViewModel.swift
+//  NearbyRestaurantsViewModel.swift
 //  Wolt Loop
 //
 //  Created by Tom Jaroli on 2022. 03. 14..
@@ -40,7 +40,7 @@ let coordinates = [
     (60.170085, 24.929569)
 ]
 
-final class NearbyListViewModel: ObservableObject {
+final class NearbyRestaurantsViewModel: ObservableObject {
     @Published var restaurants: [RestaurantViewModel]
     
     @UserDefault(key: "favourite_restaurants", defaultValue: [])
@@ -56,45 +56,61 @@ final class NearbyListViewModel: ObservableObject {
     }
     private var timer: Timer?
     
-    init() {
+    private let nearbyRestaurantsUseCase: NearbyRestaurantsUseCase
+    
+    init(nearbyRestaurantsUseCase: NearbyRestaurantsUseCase) {
         self.restaurants =  mockRestaurants
+        self.nearbyRestaurantsUseCase = nearbyRestaurantsUseCase
         searchNearbyRestaurants()
         startRotating()
     }
     
     func startRotating() {
-        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
             self.rotateCoordinates()
         }
     }
     
     private func searchNearbyRestaurants() {
-        serviceClient.searchRestaurantsNearby(
-            location: Location(
-                latitude: coordinates[currentCoordinateIndex].0,
-                longitude: coordinates[currentCoordinateIndex].1
-            )
-        )
+        nearbyRestaurantsUseCase.searchRestaurantsNearby(location: Location(latitude: coordinates[currentCoordinateIndex].0,
+                                                                            longitude: coordinates[currentCoordinateIndex].1))
             .receive(on: RunLoop.main)
-            .prefix(15)
-            .sink { [weak self] result in
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] restaurants in
                 guard let self = self else { return }
-                
-                switch result {
-                case .success(let sections):
-                    self.restaurants = self.mapResponseToRestaurantViewModels(sections: sections)
-                    self.restaurants.filter {
-                        self.favourites.contains($0.id)
-                    }
-                    .forEach {
-                        $0.isFavourite = true
-                    }
-                case .failure(let error):
-                    print(error)
-                }
+                self.restaurants = restaurants
             }
             .store(in: &cancellables)
     }
+                                                         
+//    private func searchNearbyRestaurants() {
+//        serviceClient.searchRestaurantsNearby(
+//            location: Location(
+//                latitude: coordinates[currentCoordinateIndex].0,
+//                longitude: coordinates[currentCoordinateIndex].1
+//            )
+//        )
+//            .receive(on: RunLoop.main)
+//            .prefix(15)
+//            .sink { [weak self] result in
+//                guard let self = self else { return }
+//
+//                switch result {
+//                case .success(let sections):
+//                    self.restaurants = self.mapResponseToRestaurantViewModels(sections: sections)
+//                    self.restaurants.filter {
+//                        self.favourites.contains($0.id)
+//                    }
+//                    .forEach {
+//                        $0.isFavourite = true
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//            .store(in: &cancellables)
+//    }
     
     func markRestaurantFavourite(restaurant: RestaurantViewModel) {
         print("Favourite pressed")

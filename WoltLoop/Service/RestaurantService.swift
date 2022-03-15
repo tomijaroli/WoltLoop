@@ -8,13 +8,12 @@
 import Foundation
 import Combine
 
-struct Location {
-    let latitude: Double
-    let longitude: Double
+enum RestaruantServiceError: Error {
+    case networkError
 }
 
 protocol RestaurantService {
-    func searchRestaurantsNearby(location: Location) -> AnyPublisher<Result<[Section], Error>, Never>
+    func searchRestaurantsNearby(location: Location) -> AnyPublisher<[Section], RestaruantServiceError>
 }
 
 class RestaurantServiceClient {
@@ -31,14 +30,14 @@ class RestaurantServiceClient {
 }
 
 extension RestaurantServiceClient: RestaurantService {
-    func searchRestaurantsNearby(location: Location) -> AnyPublisher<Result<[Section], Error>, Never> {
+    func searchRestaurantsNearby(location: Location) -> AnyPublisher<[Section], RestaruantServiceError> {
         networking.request(endpoint: .nearby(latitude: location.latitude, longitude: location.longitude))
-            .map({ (result: Result<NearbyRestaurantsResponse, NetworkError>) -> Result<[Section], Error> in
-                switch result {
-                case .success(let nearbyRestaurantsResult): return .success(nearbyRestaurantsResult.sections)
-                case .failure(let error): return .failure(error)
-                }
-            })
+            .mapError { networkError in
+                RestaruantServiceError.networkError
+            }
+            .map { (result: NearbyRestaurantsResponse) in
+                result.sections
+            }
             .subscribe(on: RunLoop.main)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()

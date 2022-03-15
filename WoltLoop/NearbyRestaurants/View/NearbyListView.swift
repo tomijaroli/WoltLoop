@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct NearbyListView: View {
-    @StateObject var viewModel = NearbyListViewModel()
+    @StateObject var viewModel = NearbyRestaurantsViewModel(
+        nearbyRestaurantsUseCase: LiveNearbyRestaurantsUseCase(
+            restaurantsServiceClient: RestaurantServiceClient()
+        )
+    )
     
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -31,6 +35,7 @@ struct NearbyListView: View {
                 .navigationTitle("Restaurants")
             }
         }
+        .animation(.default)
     }
 }
 

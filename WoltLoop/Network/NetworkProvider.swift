@@ -74,10 +74,9 @@ class NetworkProvider<E: Endpoint> {
         return configuration
     }
     
-    internal func request<T: Decodable>(endpoint: E) -> AnyPublisher<Result<T, NetworkError>, Never> {
+    internal func request<T: Decodable>(endpoint: E) -> AnyPublisher<T, NetworkError> {
         guard let request = makeRequest(for: endpoint) else {
-            return Just(.failure(NetworkError.invalidRequest))
-                .eraseToAnyPublisher()
+            return Fail(error: NetworkError.invalidRequest).eraseToAnyPublisher()
         }
         
         return session.dataTaskPublisher(for: request)
@@ -86,11 +85,11 @@ class NetworkProvider<E: Endpoint> {
                 self.processResponse(data: data, response: response)
             }
             .decode(type: T.self, decoder: decoder)
-            .map { .success($0) }
-            .catch({ error -> AnyPublisher<Result<T, NetworkError>, Never> in
-                return Just(.failure(NetworkError.parseError(reason: error)))
+            .map { $0 }
+            .catch { error in
+                return Fail(error: NetworkError.parseError(reason: error))
                     .eraseToAnyPublisher()
-            })
+            }
             .eraseToAnyPublisher()
     }
     
