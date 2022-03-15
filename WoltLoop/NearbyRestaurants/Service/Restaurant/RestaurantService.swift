@@ -17,7 +17,7 @@ class RestaurantServiceClient {
     //    private let scheduler: SchedulerProtocol
     
     init(
-        networking: NetworkProvider<RestaurantsEndpoint> = NetworkProvider()
+        networking: NetworkProvider<RestaurantsEndpoint>
         //        scheduler: SchedulerProtocol = Scheduler()
     ) {
         self.networking = networking

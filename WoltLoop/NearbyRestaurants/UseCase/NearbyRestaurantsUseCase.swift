@@ -13,17 +13,17 @@ protocol NearbyRestaurantsUseCase {
 }
 
 final class LiveNearbyRestaurantsUseCase {
-    private let restaurantsServiceClient: RestaurantServiceClient
+    private let restaurantsService: RestaurantService
     private var cancellables = Set<AnyCancellable>()
     
-    init(restaurantsServiceClient: RestaurantServiceClient) {
-        self.restaurantsServiceClient = restaurantsServiceClient
+    init(restaurantsService: RestaurantService) {
+        self.restaurantsService = restaurantsService
     }
 }
 
 extension LiveNearbyRestaurantsUseCase: NearbyRestaurantsUseCase {
     func searchRestaurantsNearby(location: Location) -> AnyPublisher<[RestaurantViewModel], Error> {
-        restaurantsServiceClient.searchRestaurantsNearby(location: location)
+        restaurantsService.searchRestaurantsNearby(location: location)
             .mapError { error in error } // TODO: map error properly
             .map { result in
                 result[0].items[...14].map { restaurant in

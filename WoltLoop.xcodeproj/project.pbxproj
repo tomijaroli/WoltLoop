@@ -19,6 +19,9 @@
 		9792A4A727E0B89A00C6B9DC /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4A627E0B89A00C6B9DC /* LocationProvider.swift */; };
 		9792A4A927E0BEE100C6B9DC /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4A827E0BEE100C6B9DC /* RestaurantViewModel.swift */; };
 		9792A4AB27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4AA27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift */; };
+		97A03F9B27E0CE54005B3164 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 97A03F9A27E0CE54005B3164 /* Swinject */; };
+		97A03F9E27E0CE68005B3164 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 97A03F9D27E0CE68005B3164 /* SwinjectAutoregistration */; };
+		97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */; };
 		97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */; };
 		97B3095327DF4F3D00AA7953 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095227DF4F3D00AA7953 /* Assets.xcassets */; };
 		97B3095627DF4F3D00AA7953 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */; };
@@ -67,6 +70,7 @@
 		9792A4A627E0B89A00C6B9DC /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		9792A4A827E0BEE100C6B9DC /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		9792A4AA27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRestaurantsUseCase.swift; sourceTree = "<group>"; };
+		97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsAssembly.swift; sourceTree = "<group>"; };
 		97B3094B27DF4F3C00AA7953 /* WoltLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoltLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopApp.swift; sourceTree = "<group>"; };
 		97B3095227DF4F3D00AA7953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A03F9B27E0CE54005B3164 /* Swinject in Frameworks */,
+				97A03F9E27E0CE68005B3164 /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +122,7 @@
 		9792A49027E09B7C00C6B9DC /* NearbyRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				97A03FA227E0CE98005B3164 /* DI */,
 				97B3098627DF5F2800AA7953 /* Service */,
 				9792A49227E09DD500C6B9DC /* UseCase */,
 				9792A49127E09DCA00C6B9DC /* View */,
@@ -207,6 +214,14 @@
 				9792A48E27DFB52A00C6B9DC /* UserDefaultsWrapper.swift */,
 			);
 			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		97A03FA227E0CE98005B3164 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		97B3094227DF4F3C00AA7953 = {
@@ -302,6 +317,10 @@
 			dependencies = (
 			);
 			name = WoltLoop;
+			packageProductDependencies = (
+				97A03F9A27E0CE54005B3164 /* Swinject */,
+				97A03F9D27E0CE68005B3164 /* SwinjectAutoregistration */,
+			);
 			productName = "Wolt Loop";
 			productReference = 97B3094B27DF4F3C00AA7953 /* WoltLoop.app */;
 			productType = "com.apple.product-type.application";
@@ -374,6 +393,10 @@
 				Base,
 			);
 			mainGroup = 97B3094227DF4F3C00AA7953;
+			packageReferences = (
+				97A03F9927E0CE54005B3164 /* XCRemoteSwiftPackageReference "Swinject" */,
+				97A03F9C27E0CE68005B3164 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+			);
 			productRefGroup = 97B3094C27DF4F3C00AA7953 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -431,6 +454,7 @@
 				9792A4A927E0BEE100C6B9DC /* RestaurantViewModel.swift in Sources */,
 				97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */,
 				9792A49627E0A18A00C6B9DC /* Location.swift in Sources */,
+				97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */,
 				9792A49427E09DE500C6B9DC /* NearbyRestaurantsUseCase.swift in Sources */,
 				97B3098127DF5A8F00AA7953 /* NetworkError.swift in Sources */,
 				97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */,
@@ -785,6 +809,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97A03F9927E0CE54005B3164 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.1;
+			};
+		};
+		97A03F9C27E0CE68005B3164 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97A03F9A27E0CE54005B3164 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97A03F9927E0CE54005B3164 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		97A03F9D27E0CE68005B3164 /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97A03F9C27E0CE68005B3164 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97B3094327DF4F3C00AA7953 /* Project object */;
 }

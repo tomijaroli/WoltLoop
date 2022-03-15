@@ -21,11 +21,7 @@ class NetworkProvider<E: Endpoint> {
     private let session: URLSession
     private let errorLogger: ErrorLogger
     
-    public init(
-        decoder: JSONDecoder = .init(),
-        session: URLSession = URLSession.shared,
-        errorLogger: ErrorLogger = OSErrorLogger()
-    ) {
+    public init(decoder: JSONDecoder, session: URLSession, errorLogger: ErrorLogger) {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         self.decoder = decoder
         self.session = session
