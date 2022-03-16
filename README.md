@@ -9,3 +9,18 @@ To install dependencies, run the following
 ```
 make install
 ```
+
+## Room for improvement
+- Crash reporting via e.g. Firebase Crashlytics
+- More streamlined UI - maybe showing restaurants on the map
+- View States for loading, error, etc
+- Real analytics tracking
+- Feature flags
+- Fastlane for publishing app
+- Better test coverage - e.g. NetworkProvider could have been tested
+- UI, integration, snapshot tests
+- Accessibility
+- SwiftUI preview handling
+- Localization
+- Basic CI pipeline to run tests
+- Unused code watcher - e.g. Periphery
