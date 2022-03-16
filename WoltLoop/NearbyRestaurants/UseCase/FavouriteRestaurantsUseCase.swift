@@ -13,12 +13,12 @@ protocol FavouriteRestaurantsUseCase {
     func decorateFavourites(restaurants: [RestaurantViewModel])
 }
 
-final class LiveFavouritesRestaurantsUseCase {
+final class LiveFavouriteRestaurantsUseCase {
     @UserDefault(key: "favourite_restaurants", defaultValue: [])
-    private var favourites: [String]
+    internal var favourites: [String]
 }
 
-extension LiveFavouritesRestaurantsUseCase: FavouriteRestaurantsUseCase {
+extension LiveFavouriteRestaurantsUseCase: FavouriteRestaurantsUseCase {
     func toggleFavourite(for restaurant: RestaurantViewModel) {
         if restaurant.isFavourite {
             favourites = favourites.filter { $0 != restaurant.id }

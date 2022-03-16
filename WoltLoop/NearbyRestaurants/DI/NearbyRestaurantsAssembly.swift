@@ -43,7 +43,7 @@ final class NearbyRestaurantAssembly: Assembly {
         
         container.autoregister(
             FavouriteRestaurantsUseCase.self,
-            initializer: LiveFavouritesRestaurantsUseCase.init
+            initializer: LiveFavouriteRestaurantsUseCase.init
         )
         
         container.autoregister(

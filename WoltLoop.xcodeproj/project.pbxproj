@@ -42,6 +42,7 @@
 		97C9975E27DFA220003F02E1 /* NearbyRestaurantListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */; };
 		97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */; };
 		97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */; };
+		97EE119527E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantListItemView.swift; sourceTree = "<group>"; };
 		97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurants.swift; sourceTree = "<group>"; };
 		97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsUseCaseTests.swift; sourceTree = "<group>"; };
+		97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRestaurantsUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,9 +237,9 @@
 		97A03FA927E0E2B9005B3164 /* NearbyRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				97EE119327E1EFBB00C42AF7 /* UseCase */,
 				97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */,
 				97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */,
-				97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */,
 			);
 			path = NearbyRestaurants;
 			sourceTree = "<group>";
@@ -327,6 +329,15 @@
 				9792A4A227E0B76800C6B9DC /* Restaurant */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		97EE119327E1EFBB00C42AF7 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */,
+				97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +535,7 @@
 			files = (
 				97A03FAD27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift in Sources */,
 				97A03FAB27E0E2CA005B3164 /* RestaurantViewModelTests.swift in Sources */,
+				97EE119527E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift in Sources */,
 				97A03FB127E1CA9C005B3164 /* mockolo.generated.swift in Sources */,
 				97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */,
 			);
