@@ -15,18 +15,24 @@ protocol LocationProvider {
 
 final class LoopedLocationProvider {
     private let currentLocationSubject: CurrentValueSubject<Location, Never>
-    
-    private var timer: Timer?
+
     private var currentCoordinateIndex: Int
+    private var rotationTimer: TimerProtocol?
     
-    init() {
+    private let timerFactory: TimerFactory
+    
+    init(
+        timerFactory: @escaping TimerFactory
+    ) {
+        self.timerFactory = timerFactory
         self.currentCoordinateIndex = 0
         self.currentLocationSubject = CurrentValueSubject<Location, Never>(coordinates[self.currentCoordinateIndex])
         startRotating()
     }
     
     func startRotating() {
-        timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
+        rotationTimer = timerFactory(10.0) { [weak self] timer in
+            guard let self = self else { return }
             self.rotateCoordinates()
         }
     }

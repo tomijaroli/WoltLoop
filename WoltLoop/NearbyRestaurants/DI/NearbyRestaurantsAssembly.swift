@@ -36,10 +36,11 @@ final class NearbyRestaurantAssembly: Assembly {
             initializer: LiveNearbyRestaurantsUseCase.init
         )
         
-        container.autoregister(
-            LocationProvider.self,
-            initializer: LoopedLocationProvider.init
-        )
+        container.register(LocationProvider.self) { _ in
+            LoopedLocationProvider(timerFactory: {
+                return Timer.scheduledTimer(withTimeInterval: $0, repeats: true, block: $1)
+            })
+        }
         
         container.autoregister(
             FavouriteRestaurantsUseCase.self,

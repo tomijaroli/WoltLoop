@@ -20,9 +20,7 @@ class NearbyRestaurantsUseCaseTests: XCTestCase {
     }
     
     override func tearDown() {
-        cancellables.forEach { cancellable in
-            cancellable.cancel()
-        }
+        cancellables.forEach { $0.cancel() }
         cancellables = Set<AnyCancellable>()
     }
     

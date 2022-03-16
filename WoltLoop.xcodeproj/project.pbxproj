@@ -43,6 +43,8 @@
 		97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */; };
 		97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */; };
 		97EE119527E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */; };
+		97EE119927E20C3200C42AF7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119827E20C3200C42AF7 /* Timer.swift */; };
+		97EE119C27E20F9400C42AF7 /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119B27E20F9400C42AF7 /* LocationProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurants.swift; sourceTree = "<group>"; };
 		97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsUseCaseTests.swift; sourceTree = "<group>"; };
 		97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRestaurantsUseCaseTests.swift; sourceTree = "<group>"; };
+		97EE119827E20C3200C42AF7 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		97EE119B27E20F9400C42AF7 /* LocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,7 @@
 		9792A4AE27E0CA8100C6B9DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				97EE119727E20C2600C42AF7 /* Timer */,
 				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
 				97B3097D27DF5A7200AA7953 /* Network */,
 				9792A4AC27E0CA5500C6B9DC /* Location */,
@@ -237,9 +242,8 @@
 		97A03FA927E0E2B9005B3164 /* NearbyRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				97EE119627E1FCEE00C42AF7 /* View */,
 				97EE119327E1EFBB00C42AF7 /* UseCase */,
-				97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */,
-				97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */,
 			);
 			path = NearbyRestaurants;
 			sourceTree = "<group>";
@@ -298,6 +302,7 @@
 		97B3095E27DF4F3D00AA7953 /* WoltLoopTests */ = {
 			isa = PBXGroup;
 			children = (
+				97EE119A27E20F1F00C42AF7 /* Location */,
 				97A03FAF27E1CA83005B3164 /* Generated */,
 				97A03FA927E0E2B9005B3164 /* NearbyRestaurants */,
 			);
@@ -338,6 +343,31 @@
 				97EE119427E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		97EE119627E1FCEE00C42AF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */,
+				97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97EE119727E20C2600C42AF7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				97EE119827E20C3200C42AF7 /* Timer.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		97EE119A27E20F1F00C42AF7 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				97EE119B27E20F9400C42AF7 /* LocationProviderTests.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +548,7 @@
 				97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */,
 				9792A49627E0A18A00C6B9DC /* Location.swift in Sources */,
 				97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */,
+				97EE119927E20C3200C42AF7 /* Timer.swift in Sources */,
 				9792A49427E09DE500C6B9DC /* NearbyRestaurantsUseCase.swift in Sources */,
 				97B3098127DF5A8F00AA7953 /* NetworkError.swift in Sources */,
 				97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */,
@@ -536,6 +567,7 @@
 				97A03FAD27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift in Sources */,
 				97A03FAB27E0E2CA005B3164 /* RestaurantViewModelTests.swift in Sources */,
 				97EE119527E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift in Sources */,
+				97EE119C27E20F9400C42AF7 /* LocationProviderTests.swift in Sources */,
 				97A03FB127E1CA9C005B3164 /* mockolo.generated.swift in Sources */,
 				97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */,
 			);
