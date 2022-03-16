@@ -14,13 +14,7 @@ final class CoreAssembly: Assembly {
         container.register(NetworkProvider<RestaurantsEndpoint>.self) { resolver in
             NetworkProvider(decoder: .init(), session: URLSession.shared, logger: resolver.resolve(WoltLoopLogger.self)!)
         }
-        
-        container.autoregister(
-            NetworkProvider<RestaurantsEndpoint>.self,
-            argument: JSONDecoder.self,
-            initializer: NetworkProvider.init
-        )
-        
+
         container.register(LocationProvider.self) { _ in
             LoopedLocationProvider(timerFactory: {
                 return Timer.scheduledTimer(withTimeInterval: $0, repeats: true, block: $1)

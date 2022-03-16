@@ -39,10 +39,7 @@ class NetworkProvider<E: Endpoint> {
                 self.processResponseStatus(data: data, response: response)
             }
             .decode(type: T.self, decoder: decoder)
-            .map {
-                print($0)
-                return $0
-            }
+            .map { $0 }
             .catch { error in
                 return Fail(error: NetworkError.parseError(reason: error))
                     .eraseToAnyPublisher()

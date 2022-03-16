@@ -32,7 +32,7 @@ final class LoopedLocationProvider {
         startRotating()
     }
     
-    func startRotating() {
+    private func startRotating() {
         rotationTimer = timerFactory(10.0) { [weak self] _ in
             guard let self = self else { return }
             self.rotateCoordinates()

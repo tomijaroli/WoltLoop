@@ -11,6 +11,7 @@ struct NearbyRestaurantsView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     @ObservedObject var viewModel: NearbyRestaurantsViewModel
+    @State var bootstrapped: Bool = false
     
     init(viewModel: NearbyRestaurantsViewModel) {
         self.viewModel = viewModel
@@ -46,6 +47,10 @@ struct NearbyRestaurantsView: View {
         .onChange(of: scenePhase) { phase in
             switch phase {
             case .active:
+                if !bootstrapped {
+                    bootstrapped = true
+                    return
+                }
                 viewModel.didEnterForeground()
             case .background:
                 viewModel.didEnterBackground()

@@ -44,7 +44,7 @@ class NearbyRestaurantsViewModel: ObservableObject {
                 } receiveValue: { restaurants in
                     self.restaurants = restaurants
                     self.favouriteRestaurantsUseCase.decorateFavourites(restaurants: restaurants)
-                    self.errorMessage = Int.random(in: 1..<100) % 3 == 0 ? "Oops! Something went wrong!" : nil
+                    self.errorMessage = nil
                 }
                 .store(in: &self.cancellables)
         }
