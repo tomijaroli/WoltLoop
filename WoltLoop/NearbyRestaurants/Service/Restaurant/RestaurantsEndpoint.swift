@@ -31,7 +31,7 @@ extension RestaurantsEndpoint: Endpoint {
         .get
     }
     
-    var parameters: [String : String]? {
+    var parameters: [String: String]? {
         switch self {
         case .nearby(let latitude, let longitude):
             let floatFormat = "%.05f"
@@ -43,7 +43,7 @@ extension RestaurantsEndpoint: Endpoint {
         nil
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         let headers = ["Content-Type": "application/json"]
         return headers
     }

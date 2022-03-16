@@ -31,7 +31,7 @@ final class LoopedLocationProvider {
     }
     
     func startRotating() {
-        rotationTimer = timerFactory(10.0) { [weak self] timer in
+        rotationTimer = timerFactory(10.0) { [weak self] _ in
             guard let self = self else { return }
             self.rotateCoordinates()
         }
@@ -56,7 +56,7 @@ extension LoopedLocationProvider: LocationProvider {
     }
 }
 
-fileprivate let coordinates = [
+private let coordinates = [
     Location(latitude: 60.170187, longitude: 24.930599),
     Location(latitude: 60.169418, longitude: 24.931618),
     Location(latitude: 60.169818, longitude: 24.932906),

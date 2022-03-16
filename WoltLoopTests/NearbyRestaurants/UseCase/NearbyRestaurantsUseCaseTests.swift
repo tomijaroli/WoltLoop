@@ -43,7 +43,6 @@ class NearbyRestaurantsUseCaseTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        
         // Then
         XCTAssertEqual(restaurantCount, 15)
         XCTAssertTrue(isRestaurantArray)
@@ -71,7 +70,6 @@ class NearbyRestaurantsUseCaseTests: XCTestCase {
             } receiveValue: { _ in }
             .store(in: &cancellables)
 
-        
         // Then
         XCTAssertTrue(correctErrorReThrown)
     }
@@ -105,7 +103,7 @@ class NearbyRestaurantsUseCaseTests: XCTestCase {
                 Restaurant(image: RestaurantImage(url: ""), venue: Venue(id: "id", name: "name", shortDescription: "description")),
                 Restaurant(image: RestaurantImage(url: ""), venue: Venue(id: "id", name: "name", shortDescription: "description")),
                 Restaurant(image: RestaurantImage(url: ""), venue: Venue(id: "id", name: "name", shortDescription: "description"))
-            ]),
+            ])
         ]
     }
 }

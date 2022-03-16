@@ -34,7 +34,7 @@ class LocationProviderTests: XCTestCase {
         locationProvider = makeLocationProvider()
         var newLocationReceived = false
         
-        locationProvider.locationPublisher.sink { _ in } receiveValue: { location in
+        locationProvider.locationPublisher.sink { _ in } receiveValue: { _ in
             newLocationReceived = true
         }
         .store(in: &cancellables)

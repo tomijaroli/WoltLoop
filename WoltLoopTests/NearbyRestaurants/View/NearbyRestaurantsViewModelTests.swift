@@ -50,7 +50,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         
         viewModel = makeViewModel()
         viewModel.$restaurants.sink { restaurants in
-            if restaurants.count > 0 {
+            if !restaurants.isEmpty {
                 expectation.fulfill()
             }
         }
@@ -72,7 +72,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         
         viewModel = makeViewModel()
         viewModel.$restaurants.sink { restaurants in
-            if restaurants.count > 0 {
+            if !restaurants.isEmpty {
                 expectation.fulfill()
             }
         }

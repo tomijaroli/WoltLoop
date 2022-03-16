@@ -377,6 +377,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97B3096F27DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoop" */;
 			buildPhases = (
+				97EE119D27E215A000C42AF7 /* Swiftlint */,
 				97B3094727DF4F3C00AA7953 /* Sources */,
 				97B3094827DF4F3C00AA7953 /* Frameworks */,
 				97B3094927DF4F3C00AA7953 /* Resources */,
@@ -523,6 +524,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n$SRCROOT/scripts/generate-mocks.sh -i WoltLoop -s \"$SRCROOT/WoltLoop\" -d \"$SRCROOT/WoltLoopTests/Generated/mockolo.generated.swift\"\n";
+		};
+		97EE119D27E215A000C42AF7 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
