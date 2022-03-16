@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+if which swiftlint >/dev/null; then
+  git diff --diff-filter=d --cached --name-only | grep .swift | while read filename; do
+    swiftlint --fix --path "$filename"
+  done
+else
+  echo "warning: SwiftLint not installed, run make install to install it"
+  exit 1
+fi
