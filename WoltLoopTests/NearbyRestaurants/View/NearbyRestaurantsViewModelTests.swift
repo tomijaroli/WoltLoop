@@ -14,6 +14,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
     private var mockNearbyRestaurantsUseCase: NearbyRestaurantsUseCaseMock!
     private var mockLocationProvider: LocationProviderMock!
     private var mockFavouriteRestaurantsUseCase: FavouriteRestaurantsUseCaseMock!
+    private var mockLogger: WoltLoopLoggerMock!
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -21,6 +22,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         mockNearbyRestaurantsUseCase = NearbyRestaurantsUseCaseMock()
         mockLocationProvider = LocationProviderMock()
         mockFavouriteRestaurantsUseCase = FavouriteRestaurantsUseCaseMock()
+        mockLogger = WoltLoopLoggerMock()
     }
     
     override func tearDown() {
@@ -40,6 +42,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(mockNearbyRestaurantsUseCase.searchRestaurantsNearbyCallCount, 1)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
     func test_givenNearbyRestaurantsUseCaseReturnsRestaurants_whenLocationReceived_thenRestaurantsArePublished() {
@@ -62,6 +65,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         // Then
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(viewModel.restaurants, restaurants)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 2)
     }
     
     func test_givenNearbyRestaurantsUseCaseReturnsRestaurants_whenLocationReceived_thenFavouritesAreDecorated() {
@@ -84,6 +88,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         // Then
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(mockFavouriteRestaurantsUseCase.decorateFavouritesCallCount, 1)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 2)
     }
     
     func test_givenNearbyRestaurantsUseCaseReturnsFailure_whenLocationReceived_thenErrorsAreHandled() {
@@ -106,6 +111,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
         XCTAssertNotNil(viewModel.errorMessage)
         XCTAssertEqual(viewModel.errorMessage, "Oops! Something went wrong!")
+        XCTAssertEqual(mockLogger.logErrorCallCount, 1)
     }
     
     func test_givenSelectedRestaurant_whenPressMarkAsSelected_thenFavouriteUseCaseWillBeCalled() {
@@ -118,6 +124,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(mockFavouriteRestaurantsUseCase.toggleFavouriteCallCount, 1)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
     func test_whenDidEnterForeground_thenLocationProviderIsResumed() {
@@ -126,6 +133,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         viewModel.didEnterForeground()
         
         XCTAssertEqual(mockLocationProvider.resumeCallCount, 1)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
     func test_whenDidEnterBackground_thenLocationProviderIsPaused() {
@@ -134,13 +142,15 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         viewModel.didEnterBackground()
         
         XCTAssertEqual(mockLocationProvider.pauseCallCount, 1)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
     private func makeViewModel() -> NearbyRestaurantsViewModel {
         .init(
             nearbyRestaurantsUseCase: mockNearbyRestaurantsUseCase,
             locationProvider: mockLocationProvider,
-            favouriteRestaurantsUseCase: mockFavouriteRestaurantsUseCase
+            favouriteRestaurantsUseCase: mockFavouriteRestaurantsUseCase,
+            logger: mockLogger
         )
     }
     

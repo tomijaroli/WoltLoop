@@ -22,11 +22,15 @@ final class LoopedLocationProvider {
     private var rotationTimer: TimerProtocol?
     
     private let timerFactory: TimerFactory
+    private let logger: WoltLoopLogger
     
     init(
-        timerFactory: @escaping TimerFactory
+        timerFactory: @escaping TimerFactory,
+        logger: WoltLoopLogger
     ) {
         self.timerFactory = timerFactory
+        self.logger = logger
+        
         self.currentCoordinateIndex = 0
         self.currentLocationSubject = CurrentValueSubject<Location, Never>(coordinates[self.currentCoordinateIndex])
         startRotating()
@@ -41,13 +45,13 @@ final class LoopedLocationProvider {
     
     @objc
     private func rotateCoordinates() {
-        print("######## New location requested ########")
+        logger.logDebug(message: "Rotating coordinates...")
         if currentCoordinateIndex + 1 == coordinates.count {
             currentCoordinateIndex = 0
         } else {
             currentCoordinateIndex += 1
         }
-        print("######## New coordinate index is \(currentCoordinateIndex) ########")
+        logger.logDebug(message: "New coordinate index is \(currentCoordinateIndex)")
         currentLocationSubject.send(coordinates[currentCoordinateIndex])
     }
 }
@@ -58,10 +62,12 @@ extension LoopedLocationProvider: LocationProvider {
     }
     
     func pause() {
+        logger.logDebug(message: "Location provider paused.")
         rotationTimer?.invalidate()
     }
     
     func resume() {
+        logger.logDebug(message: "Location provider resumed.")
         startRotating()
     }
 }

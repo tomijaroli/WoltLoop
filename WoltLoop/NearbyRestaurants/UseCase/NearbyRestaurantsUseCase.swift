@@ -15,17 +15,22 @@ protocol NearbyRestaurantsUseCase {
 
 final class LiveNearbyRestaurantsUseCase {
     private let restaurantsService: RestaurantService
+    private let logger: WoltLoopLogger
     private var cancellables = Set<AnyCancellable>()
     
-    init(restaurantsService: RestaurantService) {
+    init(restaurantsService: RestaurantService, logger: WoltLoopLogger) {
         self.restaurantsService = restaurantsService
+        self.logger = logger
     }
 }
 
 extension LiveNearbyRestaurantsUseCase: NearbyRestaurantsUseCase {
     func searchRestaurantsNearby(location: Location) -> AnyPublisher<[RestaurantViewModel], Error> {
         restaurantsService.searchRestaurantsNearby(location: location)
-            .mapError { error in error } // TODO: map error properly
+            .mapError { [weak self] error in
+                self?.logger.logError(message: error.localizedDescription, error: error)
+                return error // TODO: map error properly
+            }
             .map { result in
                 result[0].items.prefix(15).map { restaurant in
                     RestaurantViewModel(

@@ -12,11 +12,13 @@ import Combine
 class NearbyRestaurantsUseCaseTests: XCTestCase {
     private var useCase: NearbyRestaurantsUseCase!
     private var mockRestaurantService: RestaurantServiceMock!
+    private var mockLogger: WoltLoopLoggerMock!
     
     private var cancellables = Set<AnyCancellable>()
     
     override func setUp() {
         mockRestaurantService = RestaurantServiceMock()
+        mockLogger = WoltLoopLoggerMock()
     }
     
     override func tearDown() {
@@ -72,10 +74,11 @@ class NearbyRestaurantsUseCaseTests: XCTestCase {
 
         // Then
         XCTAssertTrue(correctErrorReThrown)
+        XCTAssertEqual(mockLogger.logErrorCallCount, 1)
     }
     
     private func makeUseCase() -> NearbyRestaurantsUseCase {
-        LiveNearbyRestaurantsUseCase(restaurantsService: mockRestaurantService)
+        LiveNearbyRestaurantsUseCase(restaurantsService: mockRestaurantService, logger: mockLogger)
     }
     
     private func createDummySections() -> [Section] {

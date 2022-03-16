@@ -15,6 +15,7 @@ class LocationProviderTests: XCTestCase {
         TimerProtocolMock.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: block)
     }
     private var timer: Timer!
+    private var mockLogger: WoltLoopLoggerMock!
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,6 +24,7 @@ class LocationProviderTests: XCTestCase {
             self.timer = Timer.scheduledTimer(withTimeInterval: $0, repeats: false, block: $2)
             return self.timer
         }
+        mockLogger = WoltLoopLoggerMock()
     }
     
     override func tearDown() {
@@ -46,6 +48,7 @@ class LocationProviderTests: XCTestCase {
         // Then
         wait(for: [expectation], timeout: 1.0)
         XCTAssertTrue(newLocationReceived)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 2)
     }
     
     func test_givenRunningTimer_whenPaused_thenTimerIsInvalid() {
@@ -57,6 +60,7 @@ class LocationProviderTests: XCTestCase {
         
         // Then
         XCTAssertFalse(timer.isValid)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
     func test_givenInvalidTimer_whenResumed_thenStartsRotating() {
@@ -69,10 +73,11 @@ class LocationProviderTests: XCTestCase {
         
         // Then
         XCTAssertTrue(timer.isValid)
+        XCTAssertEqual(mockLogger.logDebugCallCount, 2)
     }
     
     private func makeLocationProvider() -> LocationProvider {
-        LoopedLocationProvider(timerFactory: mockTimerFactory)
+        LoopedLocationProvider(timerFactory: mockTimerFactory, logger: mockLogger)
     }
     
     private func makeMockTimerFactory(expectation: XCTestExpectation) -> TimerFactory {

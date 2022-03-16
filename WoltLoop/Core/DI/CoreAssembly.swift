@@ -14,11 +14,14 @@ final class CoreAssembly: Assembly {
         container.register(NetworkProvider<RestaurantsEndpoint>.self) { resolver in
             NetworkProvider(decoder: .init(), session: URLSession.shared, logger: resolver.resolve(WoltLoopLogger.self)!)
         }
-
-        container.register(LocationProvider.self) { _ in
-            LoopedLocationProvider(timerFactory: {
-                return Timer.scheduledTimer(withTimeInterval: $0, repeats: true, block: $1)
-            })
+        
+        container.register(LocationProvider.self) { resolver in
+            LoopedLocationProvider(
+                timerFactory: {
+                    return Timer.scheduledTimer(withTimeInterval: $0, repeats: true, block: $1)
+                },
+                logger: resolver.resolve(WoltLoopLogger.self)!
+            )
         }
         
         container.register(WoltLoopLogger.self) { _ in
