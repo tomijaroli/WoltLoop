@@ -19,13 +19,13 @@ extension NetworkProvider {
 class NetworkProvider<E: Endpoint> {
     private let decoder: JSONDecoder
     private let session: URLSession
-    private let errorLogger: ErrorLogger
+    private let logger: WoltLoopLogger
     
-    init(decoder: JSONDecoder, session: URLSession, errorLogger: ErrorLogger) {
+    init(decoder: JSONDecoder, session: URLSession, logger: WoltLoopLogger) {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         self.decoder = decoder
         self.session = session
-        self.errorLogger = errorLogger
+        self.logger = logger
     }
     
     func request<T: Decodable>(endpoint: E) -> AnyPublisher<T, NetworkError> {
@@ -55,7 +55,8 @@ class NetworkProvider<E: Endpoint> {
         partialURL = partialURL.appendingPathComponent(endpoint.path)
         
         guard var components = URLComponents(url: partialURL, resolvingAgainstBaseURL: false) else {
-            errorLogger.log(URLError.couldNotBuildURLComponents(partialURL: partialURL))
+            let error = URLError.couldNotBuildURLComponents(partialURL: partialURL)
+            logger.logError(message: error.localizedDescription, error: error)
             return nil
         }
         
@@ -66,7 +67,8 @@ class NetworkProvider<E: Endpoint> {
         }
         
         guard let url = components.url else {
-            errorLogger.log(URLError.couldNotBuildURL(partialURL: partialURL, parameters: endpoint.parameters))
+            let error = URLError.couldNotBuildURL(partialURL: partialURL, parameters: endpoint.parameters)
+            logger.logError(message: error.localizedDescription, error: error)
             return nil
         }
         

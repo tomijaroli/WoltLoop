@@ -13,7 +13,7 @@ struct WoltLoopApp: App {
     private let assembler: Assembler
     
     init() {
-        self.assembler = Assembler([NearbyRestaurantAssembly()])
+        self.assembler = Assembler([CoreAssembly(), NearbyRestaurantAssembly()])
         PreviewBuilder.shared.setup(with: assembler)
     }
     

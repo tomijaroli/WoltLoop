@@ -12,21 +12,6 @@ import SwinjectAutoregistration
 final class NearbyRestaurantAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(
-            ErrorLogger.self,
-            initializer: OSErrorLogger.init
-        )
-        
-        container.register(NetworkProvider<RestaurantsEndpoint>.self) { resolver in
-            NetworkProvider(decoder: .init(), session: URLSession.shared, errorLogger: resolver.resolve(ErrorLogger.self)!)
-        }
-        
-        container.autoregister(
-            NetworkProvider<RestaurantsEndpoint>.self,
-            argument: JSONDecoder.self,
-            initializer: NetworkProvider.init
-        )
-        
-        container.autoregister(
             RestaurantService.self,
             initializer: RestaurantServiceClient.init
         )
@@ -35,12 +20,6 @@ final class NearbyRestaurantAssembly: Assembly {
             NearbyRestaurantsUseCase.self,
             initializer: LiveNearbyRestaurantsUseCase.init
         )
-        
-        container.register(LocationProvider.self) { _ in
-            LoopedLocationProvider(timerFactory: {
-                return Timer.scheduledTimer(withTimeInterval: $0, repeats: true, block: $1)
-            })
-        }
         
         container.autoregister(
             FavouriteRestaurantsUseCase.self,

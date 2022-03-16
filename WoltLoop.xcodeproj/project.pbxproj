@@ -36,7 +36,6 @@
 		97B3097F27DF5A7B00AA7953 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097E27DF5A7B00AA7953 /* Endpoint.swift */; };
 		97B3098127DF5A8F00AA7953 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098027DF5A8F00AA7953 /* NetworkError.swift */; };
 		97B3098327DF5AAA00AA7953 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098227DF5AAA00AA7953 /* NetworkProvider.swift */; };
-		97B3098527DF5B1E00AA7953 /* ErrorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */; };
 		97B3098827DF5F7600AA7953 /* RestaurantsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098727DF5F7600AA7953 /* RestaurantsEndpoint.swift */; };
 		97B3098A27DF62B500AA7953 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098927DF62B500AA7953 /* RestaurantService.swift */; };
 		97C9975E27DFA220003F02E1 /* NearbyRestaurantListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */; };
@@ -46,6 +45,12 @@
 		97EE119927E20C3200C42AF7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119827E20C3200C42AF7 /* Timer.swift */; };
 		97EE119C27E20F9400C42AF7 /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119B27E20F9400C42AF7 /* LocationProviderTests.swift */; };
 		97EE11A027E223B500C42AF7 /* RestaurantEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119F27E223B500C42AF7 /* RestaurantEndpointTests.swift */; };
+		97EE11A527E228A100C42AF7 /* WoltLoopLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11A427E228A100C42AF7 /* WoltLoopLogger.swift */; };
+		97EE11A727E228C500C42AF7 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11A627E228C500C42AF7 /* OSLogger.swift */; };
+		97EE11A927E228EF00C42AF7 /* RemoteLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11A827E228EF00C42AF7 /* RemoteLogger.swift */; };
+		97EE11AB27E2299C00C42AF7 /* AggregatedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11AA27E2299C00C42AF7 /* AggregatedLogger.swift */; };
+		97EE11AE27E22A1600C42AF7 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11AD27E22A1600C42AF7 /* CoreAssembly.swift */; };
+		97EE11B227E22E6200C42AF7 /* AggregatedLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11B127E22E6200C42AF7 /* AggregatedLoggerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +101,6 @@
 		97B3097E27DF5A7B00AA7953 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		97B3098027DF5A8F00AA7953 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		97B3098227DF5AAA00AA7953 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogger.swift; sourceTree = "<group>"; };
 		97B3098727DF5F7600AA7953 /* RestaurantsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsEndpoint.swift; sourceTree = "<group>"; };
 		97B3098927DF62B500AA7953 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantListItemView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,12 @@
 		97EE119827E20C3200C42AF7 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		97EE119B27E20F9400C42AF7 /* LocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
 		97EE119F27E223B500C42AF7 /* RestaurantEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEndpointTests.swift; sourceTree = "<group>"; };
+		97EE11A427E228A100C42AF7 /* WoltLoopLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopLogger.swift; sourceTree = "<group>"; };
+		97EE11A627E228C500C42AF7 /* OSLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
+		97EE11A827E228EF00C42AF7 /* RemoteLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLogger.swift; sourceTree = "<group>"; };
+		97EE11AA27E2299C00C42AF7 /* AggregatedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedLogger.swift; sourceTree = "<group>"; };
+		97EE11AD27E22A1600C42AF7 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
+		97EE11B127E22E6200C42AF7 /* AggregatedLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedLoggerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,8 +227,9 @@
 		9792A4AE27E0CA8100C6B9DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				97EE11AC27E22A0C00C42AF7 /* DI */,
+				97EE11A327E2289500C42AF7 /* Logging */,
 				97EE119727E20C2600C42AF7 /* Timer */,
-				97B3098427DF5B1E00AA7953 /* ErrorLogger.swift */,
 				97B3097D27DF5A7200AA7953 /* Network */,
 				9792A4AC27E0CA5500C6B9DC /* Location */,
 			);
@@ -305,7 +316,7 @@
 		97B3095E27DF4F3D00AA7953 /* WoltLoopTests */ = {
 			isa = PBXGroup;
 			children = (
-				97EE119A27E20F1F00C42AF7 /* Location */,
+				97EE11AF27E22E3000C42AF7 /* Core */,
 				97A03FAF27E1CA83005B3164 /* Generated */,
 				97A03FA927E0E2B9005B3164 /* NearbyRestaurants */,
 			);
@@ -379,6 +390,42 @@
 				97EE119F27E223B500C42AF7 /* RestaurantEndpointTests.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		97EE11A327E2289500C42AF7 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11A427E228A100C42AF7 /* WoltLoopLogger.swift */,
+				97EE11A627E228C500C42AF7 /* OSLogger.swift */,
+				97EE11A827E228EF00C42AF7 /* RemoteLogger.swift */,
+				97EE11AA27E2299C00C42AF7 /* AggregatedLogger.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		97EE11AC27E22A0C00C42AF7 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11AD27E22A1600C42AF7 /* CoreAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		97EE11AF27E22E3000C42AF7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11B027E22E3600C42AF7 /* Logging */,
+				97EE119A27E20F1F00C42AF7 /* Location */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		97EE11B027E22E3600C42AF7 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11B127E22E6200C42AF7 /* AggregatedLoggerTests.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,9 +612,12 @@
 				9792A4A127E0B72800C6B9DC /* Venue.swift in Sources */,
 				97B3098827DF5F7600AA7953 /* RestaurantsEndpoint.swift in Sources */,
 				97B3098327DF5AAA00AA7953 /* NetworkProvider.swift in Sources */,
+				97EE11A527E228A100C42AF7 /* WoltLoopLogger.swift in Sources */,
 				9792A4A427E0B77D00C6B9DC /* RestaurantServiceError.swift in Sources */,
 				9792A4AB27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift in Sources */,
 				97A03FA827E0DB5C005B3164 /* PreviewBuilder.swift in Sources */,
+				97EE11AE27E22A1600C42AF7 /* CoreAssembly.swift in Sources */,
+				97EE11AB27E2299C00C42AF7 /* AggregatedLogger.swift in Sources */,
 				97B3097C27DF574300AA7953 /* NearbyRestaurantsViewModel.swift in Sources */,
 				9792A4A727E0B89A00C6B9DC /* LocationProvider.swift in Sources */,
 				97B3097A27DF55E800AA7953 /* NearbyRestaurantsView.swift in Sources */,
@@ -579,14 +629,15 @@
 				9792A49627E0A18A00C6B9DC /* Location.swift in Sources */,
 				97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */,
 				97EE119927E20C3200C42AF7 /* Timer.swift in Sources */,
+				97EE11A727E228C500C42AF7 /* OSLogger.swift in Sources */,
 				9792A49427E09DE500C6B9DC /* NearbyRestaurantsUseCase.swift in Sources */,
 				97B3098127DF5A8F00AA7953 /* NetworkError.swift in Sources */,
 				97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */,
 				9792A49F27E0B71600C6B9DC /* RestaurantImage.swift in Sources */,
-				97B3098527DF5B1E00AA7953 /* ErrorLogger.swift in Sources */,
 				9792A48F27DFB52A00C6B9DC /* UserDefaultsWrapper.swift in Sources */,
 				97B3098A27DF62B500AA7953 /* RestaurantService.swift in Sources */,
 				97B3097F27DF5A7B00AA7953 /* Endpoint.swift in Sources */,
+				97EE11A927E228EF00C42AF7 /* RemoteLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +649,7 @@
 				97A03FAB27E0E2CA005B3164 /* RestaurantViewModelTests.swift in Sources */,
 				97EE119527E1EFCD00C42AF7 /* FavouriteRestaurantsUseCaseTests.swift in Sources */,
 				97EE119C27E20F9400C42AF7 /* LocationProviderTests.swift in Sources */,
+				97EE11B227E22E6200C42AF7 /* AggregatedLoggerTests.swift in Sources */,
 				97EE11A027E223B500C42AF7 /* RestaurantEndpointTests.swift in Sources */,
 				97A03FB127E1CA9C005B3164 /* mockolo.generated.swift in Sources */,
 				97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */,
