@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// @mockable
 protocol RestaurantService {
     func searchRestaurantsNearby(location: Location) -> AnyPublisher<[Section], RestaruantServiceError>
 }

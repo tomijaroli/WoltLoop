@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// @mockable
 protocol NearbyRestaurantsUseCase {
     func searchRestaurantsNearby(location: Location) -> AnyPublisher<[RestaurantViewModel], Error>
 }
@@ -26,7 +27,7 @@ extension LiveNearbyRestaurantsUseCase: NearbyRestaurantsUseCase {
         restaurantsService.searchRestaurantsNearby(location: location)
             .mapError { error in error } // TODO: map error properly
             .map { result in
-                result[0].items[...14].map { restaurant in
+                result[0].items.prefix(15).map { restaurant in
                     RestaurantViewModel(
                         id: restaurant.venue.id,
                         name: restaurant.venue.name,

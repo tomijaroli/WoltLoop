@@ -19,6 +19,12 @@ struct NearbyRestaurantsView: View {
         VStack {
             NavigationView {
                 VStack {
+                    viewModel.errorMessage.map { message in
+                        Text(message)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.secondary)
+                            .animation(.default, value: message)
+                    }
                     List(viewModel.restaurants) { restaurant in
                         NearbyRestaurantListItemView(
                             restaurantViewModel: restaurant,

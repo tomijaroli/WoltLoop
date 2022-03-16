@@ -23,10 +23,12 @@
 		97A03F9E27E0CE68005B3164 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 97A03F9D27E0CE68005B3164 /* SwinjectAutoregistration */; };
 		97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */; };
 		97A03FA827E0DB5C005B3164 /* PreviewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FA727E0DB5C005B3164 /* PreviewBuilder.swift */; };
+		97A03FAB27E0E2CA005B3164 /* RestaurantViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */; };
+		97A03FAD27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */; };
+		97A03FB127E1CA9C005B3164 /* mockolo.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A03FB027E1CA9C005B3164 /* mockolo.generated.swift */; };
 		97B3094F27DF4F3C00AA7953 /* WoltLoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */; };
 		97B3095327DF4F3D00AA7953 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095227DF4F3D00AA7953 /* Assets.xcassets */; };
 		97B3095627DF4F3D00AA7953 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */; };
-		97B3096027DF4F3D00AA7953 /* WoltLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */; };
 		97B3096A27DF4F3D00AA7953 /* WoltLoopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */; };
 		97B3096C27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */; };
 		97B3097A27DF55E800AA7953 /* NearbyRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3097927DF55E800AA7953 /* NearbyRestaurantsView.swift */; };
@@ -39,6 +41,7 @@
 		97B3098A27DF62B500AA7953 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3098927DF62B500AA7953 /* RestaurantService.swift */; };
 		97C9975E27DFA220003F02E1 /* NearbyRestaurantListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */; };
 		97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */; };
+		97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,12 +76,14 @@
 		9792A4AA27E0C3E700C6B9DC /* FavouriteRestaurantsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRestaurantsUseCase.swift; sourceTree = "<group>"; };
 		97A03FA527E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsAssembly.swift; sourceTree = "<group>"; };
 		97A03FA727E0DB5C005B3164 /* PreviewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewBuilder.swift; sourceTree = "<group>"; };
+		97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModelTests.swift; sourceTree = "<group>"; };
+		97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsViewModelTests.swift; sourceTree = "<group>"; };
+		97A03FB027E1CA9C005B3164 /* mockolo.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockolo.generated.swift; sourceTree = "<group>"; };
 		97B3094B27DF4F3C00AA7953 /* WoltLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoltLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3094E27DF4F3C00AA7953 /* WoltLoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopApp.swift; sourceTree = "<group>"; };
 		97B3095227DF4F3D00AA7953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopTests.swift; sourceTree = "<group>"; };
 		97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3096927DF4F3D00AA7953 /* WoltLoopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITests.swift; sourceTree = "<group>"; };
 		97B3096B27DF4F3D00AA7953 /* WoltLoopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoltLoopUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		97B3098927DF62B500AA7953 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		97C9975D27DFA220003F02E1 /* NearbyRestaurantListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantListItemView.swift; sourceTree = "<group>"; };
 		97C9975F27DFA3C1003F02E1 /* MockRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurants.swift; sourceTree = "<group>"; };
+		97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,24 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		97A03FA927E0E2B9005B3164 /* NearbyRestaurants */ = {
+			isa = PBXGroup;
+			children = (
+				97A03FAA27E0E2CA005B3164 /* RestaurantViewModelTests.swift */,
+				97A03FAC27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift */,
+				97EE119127E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift */,
+			);
+			path = NearbyRestaurants;
+			sourceTree = "<group>";
+		};
+		97A03FAF27E1CA83005B3164 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				97A03FB027E1CA9C005B3164 /* mockolo.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		97B3094227DF4F3C00AA7953 = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +296,8 @@
 		97B3095E27DF4F3D00AA7953 /* WoltLoopTests */ = {
 			isa = PBXGroup;
 			children = (
-				97B3095F27DF4F3D00AA7953 /* WoltLoopTests.swift */,
+				97A03FAF27E1CA83005B3164 /* Generated */,
+				97A03FA927E0E2B9005B3164 /* NearbyRestaurants */,
 			);
 			path = WoltLoopTests;
 			sourceTree = "<group>";
@@ -332,6 +357,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97B3097227DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopTests" */;
 			buildPhases = (
+				97A03FAE27E1C843005B3164 /* Generate Mocks */,
 				97B3095727DF4F3D00AA7953 /* Sources */,
 				97B3095827DF4F3D00AA7953 /* Frameworks */,
 				97B3095927DF4F3D00AA7953 /* Resources */,
@@ -437,6 +463,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		97A03FAE27E1C843005B3164 /* Generate Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Mocks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n$SRCROOT/scripts/generate-mocks.sh -i WoltLoop -s \"$SRCROOT/WoltLoop\" -d \"$SRCROOT/WoltLoopTests/Generated/mockolo.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		97B3094727DF4F3C00AA7953 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -474,7 +522,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97B3096027DF4F3D00AA7953 /* WoltLoopTests.swift in Sources */,
+				97A03FAD27E0E464005B3164 /* NearbyRestaurantsViewModelTests.swift in Sources */,
+				97A03FAB27E0E2CA005B3164 /* RestaurantViewModelTests.swift in Sources */,
+				97A03FB127E1CA9C005B3164 /* mockolo.generated.swift in Sources */,
+				97EE119227E1E81600C42AF7 /* NearbyRestaurantsUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

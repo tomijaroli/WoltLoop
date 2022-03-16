@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// @mockable
 protocol LocationProvider {
     var locationPublisher: AnyPublisher<Location, Never> { get }
 }

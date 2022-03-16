@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol FavouriteRestaurantsUseCase {
     func toggleFavourite(for restaurant: RestaurantViewModel)
     func decorateFavourites(restaurants: [RestaurantViewModel])
