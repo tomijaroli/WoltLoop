@@ -41,8 +41,8 @@ struct NearbyRestaurantListItemView: View {
                         markAsFavourite(restaurantViewModel)
                     } label: {
                         Image(restaurantViewModel.isFavourite ?
-                              "baseline_favorite_black_24pt" :
-                              "baseline_favorite_border_black_24pt")
+                              "favourite_filled" :
+                              "favourite_outlined")
                             .resizable()
                             .frame(width: 24, height: 24)
                             .foregroundColor(.black)
