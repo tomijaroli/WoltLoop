@@ -22,5 +22,5 @@ make install
 - Accessibility
 - SwiftUI preview handling
 - Localization
-- Fix CI pipeline - currently has an issue, can't install dependencies
+- Fix CI pipeline - can't install dependencies
 - Unused code watcher - e.g. Periphery
