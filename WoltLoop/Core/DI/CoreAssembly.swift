@@ -27,5 +27,10 @@ final class CoreAssembly: Assembly {
         container.register(WoltLoopLogger.self) { _ in
             AggregatedLogger(with: [OSLogger(), RemoteLogger()])
         }
+        
+        container.autoregister(
+            AnalyticsEventTracker.self,
+            initializer: SomeRemoteAnalyticsEventTracker.init
+        )
     }
 }

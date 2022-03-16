@@ -27,6 +27,11 @@ final class NearbyRestaurantAssembly: Assembly {
         )
         
         container.autoregister(
+            NearbyRestaurantsAnalyticsTracker.self,
+            initializer: LiveNearbyRestaurantsAnalyticsTracker.init
+        )
+        
+        container.autoregister(
             NearbyRestaurantsViewModel.self,
             initializer: NearbyRestaurantsViewModel.init
         )

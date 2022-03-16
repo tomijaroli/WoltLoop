@@ -51,6 +51,9 @@
 		97EE11AB27E2299C00C42AF7 /* AggregatedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11AA27E2299C00C42AF7 /* AggregatedLogger.swift */; };
 		97EE11AE27E22A1600C42AF7 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11AD27E22A1600C42AF7 /* CoreAssembly.swift */; };
 		97EE11B227E22E6200C42AF7 /* AggregatedLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11B127E22E6200C42AF7 /* AggregatedLoggerTests.swift */; };
+		97EE11B527E27DD200C42AF7 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11B427E27DD200C42AF7 /* AnalyticsEvent.swift */; };
+		97EE11B727E27DEF00C42AF7 /* AnalyticsEventTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11B627E27DEF00C42AF7 /* AnalyticsEventTracker.swift */; };
+		97EE11BA27E27F1700C42AF7 /* NearbyRestaurantsAnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EE11B927E27F1700C42AF7 /* NearbyRestaurantsAnalyticsTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,9 @@
 		97EE11AA27E2299C00C42AF7 /* AggregatedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedLogger.swift; sourceTree = "<group>"; };
 		97EE11AD27E22A1600C42AF7 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		97EE11B127E22E6200C42AF7 /* AggregatedLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedLoggerTests.swift; sourceTree = "<group>"; };
+		97EE11B427E27DD200C42AF7 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		97EE11B627E27DEF00C42AF7 /* AnalyticsEventTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEventTracker.swift; sourceTree = "<group>"; };
+		97EE11B927E27F1700C42AF7 /* NearbyRestaurantsAnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsAnalyticsTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		9792A49027E09B7C00C6B9DC /* NearbyRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				97EE11B827E27F0600C42AF7 /* Analytics */,
 				97A03FA227E0CE98005B3164 /* DI */,
 				97B3098627DF5F2800AA7953 /* Service */,
 				9792A49227E09DD500C6B9DC /* UseCase */,
@@ -227,6 +234,7 @@
 		9792A4AE27E0CA8100C6B9DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				97EE11B327E27DB900C42AF7 /* Analytics */,
 				97EE11AC27E22A0C00C42AF7 /* DI */,
 				97EE11A327E2289500C42AF7 /* Logging */,
 				97EE119727E20C2600C42AF7 /* Timer */,
@@ -428,6 +436,23 @@
 			path = Logging;
 			sourceTree = "<group>";
 		};
+		97EE11B327E27DB900C42AF7 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11B427E27DD200C42AF7 /* AnalyticsEvent.swift */,
+				97EE11B627E27DEF00C42AF7 /* AnalyticsEventTracker.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		97EE11B827E27F0600C42AF7 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				97EE11B927E27F1700C42AF7 /* NearbyRestaurantsAnalyticsTracker.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -620,11 +645,13 @@
 				97EE11AB27E2299C00C42AF7 /* AggregatedLogger.swift in Sources */,
 				97B3097C27DF574300AA7953 /* NearbyRestaurantsViewModel.swift in Sources */,
 				9792A4A727E0B89A00C6B9DC /* LocationProvider.swift in Sources */,
+				97EE11B727E27DEF00C42AF7 /* AnalyticsEventTracker.swift in Sources */,
 				97B3097A27DF55E800AA7953 /* NearbyRestaurantsView.swift in Sources */,
 				97C9975E27DFA220003F02E1 /* NearbyRestaurantListItemView.swift in Sources */,
 				9792A49927E0B6DF00C6B9DC /* NearbyRestaurantsResponse.swift in Sources */,
 				9792A49D27E0B70400C6B9DC /* Restaurant.swift in Sources */,
 				9792A4A927E0BEE100C6B9DC /* RestaurantViewModel.swift in Sources */,
+				97EE11BA27E27F1700C42AF7 /* NearbyRestaurantsAnalyticsTracker.swift in Sources */,
 				97C9976027DFA3C1003F02E1 /* MockRestaurants.swift in Sources */,
 				9792A49627E0A18A00C6B9DC /* Location.swift in Sources */,
 				97A03FA627E0CEC7005B3164 /* NearbyRestaurantsAssembly.swift in Sources */,
@@ -637,6 +664,7 @@
 				9792A48F27DFB52A00C6B9DC /* UserDefaultsWrapper.swift in Sources */,
 				97B3098A27DF62B500AA7953 /* RestaurantService.swift in Sources */,
 				97B3097F27DF5A7B00AA7953 /* Endpoint.swift in Sources */,
+				97EE11B527E27DD200C42AF7 /* AnalyticsEvent.swift in Sources */,
 				97EE11A927E228EF00C42AF7 /* RemoteLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

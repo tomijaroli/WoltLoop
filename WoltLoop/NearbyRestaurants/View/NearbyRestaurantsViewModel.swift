@@ -18,17 +18,20 @@ class NearbyRestaurantsViewModel: ObservableObject {
     private let nearbyRestaurantsUseCase: NearbyRestaurantsUseCase
     private let locationProvider: LocationProvider
     private let favouriteRestaurantsUseCase: FavouriteRestaurantsUseCase
+    private let analyticsEventTracker: NearbyRestaurantsAnalyticsTracker
     private let logger: WoltLoopLogger
     
     init(
         nearbyRestaurantsUseCase: NearbyRestaurantsUseCase,
         locationProvider: LocationProvider,
         favouriteRestaurantsUseCase: FavouriteRestaurantsUseCase,
+        analyticsEventTracker: NearbyRestaurantsAnalyticsTracker,
         logger: WoltLoopLogger
     ) {
         self.nearbyRestaurantsUseCase = nearbyRestaurantsUseCase
         self.locationProvider = locationProvider
         self.favouriteRestaurantsUseCase = favouriteRestaurantsUseCase
+        self.analyticsEventTracker = analyticsEventTracker
         self.logger = logger
         
         locationProvider.locationPublisher.sink { [weak self] location in
@@ -52,6 +55,7 @@ class NearbyRestaurantsViewModel: ObservableObject {
                     self.restaurants = restaurants
                     self.favouriteRestaurantsUseCase.decorateFavourites(restaurants: restaurants)
                     self.errorMessage = nil
+                    self.analyticsEventTracker.logRestaurantsLoaded()
                     self.logger.logDebug(message: "Restaurants received on ViewModel")
                 }
                 .store(in: &self.cancellables)
@@ -62,6 +66,7 @@ class NearbyRestaurantsViewModel: ObservableObject {
     func markRestaurantFavourite(restaurant: RestaurantViewModel) {
         logger.logDebug(message: "Toggle restaurant with id: \(restaurant.id) favourite")
         favouriteRestaurantsUseCase.toggleFavourite(for: restaurant)
+        analyticsEventTracker.toggleFavourite(for: restaurant.id)
     }
     
     func didEnterForeground() {

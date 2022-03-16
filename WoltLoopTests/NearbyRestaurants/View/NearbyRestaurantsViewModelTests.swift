@@ -14,6 +14,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
     private var mockNearbyRestaurantsUseCase: NearbyRestaurantsUseCaseMock!
     private var mockLocationProvider: LocationProviderMock!
     private var mockFavouriteRestaurantsUseCase: FavouriteRestaurantsUseCaseMock!
+    private var mockAnalyticsEventTracker: NearbyRestaurantsAnalyticsTrackerMock!
     private var mockLogger: WoltLoopLoggerMock!
     
     private var cancellables = Set<AnyCancellable>()
@@ -22,6 +23,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         mockNearbyRestaurantsUseCase = NearbyRestaurantsUseCaseMock()
         mockLocationProvider = LocationProviderMock()
         mockFavouriteRestaurantsUseCase = FavouriteRestaurantsUseCaseMock()
+        mockAnalyticsEventTracker = NearbyRestaurantsAnalyticsTrackerMock()
         mockLogger = WoltLoopLoggerMock()
     }
     
@@ -65,6 +67,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         // Then
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(viewModel.restaurants, restaurants)
+        XCTAssertEqual(mockAnalyticsEventTracker.logRestaurantsLoadedCallCount, 1)
         XCTAssertEqual(mockLogger.logDebugCallCount, 2)
     }
     
@@ -124,6 +127,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(mockFavouriteRestaurantsUseCase.toggleFavouriteCallCount, 1)
+        XCTAssertEqual(mockAnalyticsEventTracker.toggleFavouriteCallCount, 1)
         XCTAssertEqual(mockLogger.logDebugCallCount, 1)
     }
     
@@ -150,6 +154,7 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
             nearbyRestaurantsUseCase: mockNearbyRestaurantsUseCase,
             locationProvider: mockLocationProvider,
             favouriteRestaurantsUseCase: mockFavouriteRestaurantsUseCase,
+            analyticsEventTracker: mockAnalyticsEventTracker,
             logger: mockLogger
         )
     }
