@@ -62,13 +62,6 @@
 			remoteGlobalIDString = 97B3094A27DF4F3C00AA7953;
 			remoteInfo = "Wolt Loop";
 		};
-		97B3096627DF4F3D00AA7953 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 97B3094327DF4F3C00AA7953 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 97B3094A27DF4F3C00AA7953;
-			remoteInfo = "Wolt Loop";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +87,6 @@
 		97B3095227DF4F3D00AA7953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97B3095527DF4F3D00AA7953 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoltLoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B3097927DF55E800AA7953 /* NearbyRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsView.swift; sourceTree = "<group>"; };
 		97B3097B27DF574300AA7953 /* NearbyRestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestaurantsViewModel.swift; sourceTree = "<group>"; };
 		97B3097E27DF5A7B00AA7953 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -131,13 +123,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		97B3095827DF4F3D00AA7953 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		97B3096227DF4F3D00AA7953 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,7 +273,6 @@
 			children = (
 				97B3094B27DF4F3C00AA7953 /* WoltLoop.app */,
 				97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */,
-				97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -483,24 +467,6 @@
 			productReference = 97B3095B27DF4F3D00AA7953 /* WoltLoopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		97B3096427DF4F3D00AA7953 /* WoltLoopUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopUITests" */;
-			buildPhases = (
-				97B3096127DF4F3D00AA7953 /* Sources */,
-				97B3096227DF4F3D00AA7953 /* Frameworks */,
-				97B3096327DF4F3D00AA7953 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				97B3096727DF4F3D00AA7953 /* PBXTargetDependency */,
-			);
-			name = WoltLoopUITests;
-			productName = "Wolt LoopUITests";
-			productReference = 97B3096527DF4F3D00AA7953 /* WoltLoopUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -515,10 +481,6 @@
 						CreatedOnToolsVersion = 13.1;
 					};
 					97B3095A27DF4F3D00AA7953 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 97B3094A27DF4F3C00AA7953;
-					};
-					97B3096427DF4F3D00AA7953 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 97B3094A27DF4F3C00AA7953;
 					};
@@ -543,7 +505,6 @@
 			targets = (
 				97B3094A27DF4F3C00AA7953 /* WoltLoop */,
 				97B3095A27DF4F3D00AA7953 /* WoltLoopTests */,
-				97B3096427DF4F3D00AA7953 /* WoltLoopUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -559,13 +520,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		97B3095927DF4F3D00AA7953 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		97B3096327DF4F3D00AA7953 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,13 +624,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97B3096127DF4F3D00AA7953 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -684,11 +631,6 @@
 			isa = PBXTargetDependency;
 			target = 97B3094A27DF4F3C00AA7953 /* WoltLoop */;
 			targetProxy = 97B3095C27DF4F3D00AA7953 /* PBXContainerItemProxy */;
-		};
-		97B3096727DF4F3D00AA7953 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 97B3094A27DF4F3C00AA7953 /* WoltLoop */;
-			targetProxy = 97B3096627DF4F3D00AA7953 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -917,52 +859,6 @@
 			};
 			name = Release;
 		};
-		97B3097627DF4F3D00AA7953 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8EYXQH5NTG;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomjaroli.Wolt-LoopUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Wolt Loop";
-			};
-			name = Debug;
-		};
-		97B3097727DF4F3D00AA7953 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8EYXQH5NTG;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomjaroli.Wolt-LoopUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Wolt Loop";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -989,15 +885,6 @@
 			buildConfigurations = (
 				97B3097327DF4F3D00AA7953 /* Debug */,
 				97B3097427DF4F3D00AA7953 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		97B3097527DF4F3D00AA7953 /* Build configuration list for PBXNativeTarget "WoltLoopUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				97B3097627DF4F3D00AA7953 /* Debug */,
-				97B3097727DF4F3D00AA7953 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
