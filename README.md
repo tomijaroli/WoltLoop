@@ -24,3 +24,4 @@ make install
 - Localization
 - Fix CI pipeline - can't install dependencies
 - Unused code watcher - e.g. Periphery
+- Better structure for views

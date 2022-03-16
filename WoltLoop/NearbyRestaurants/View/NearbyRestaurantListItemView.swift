@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct NearbyRestaurantListItemView: View {
+    private enum Constants {
+        static let imageSize = 64.0
+        static let imageCornerRadius = 12.0
+        static let textSpacing = 4.0
+        static let favouritesIconSize = 24.0
+    }
+    
     @ObservedObject var restaurantViewModel: RestaurantViewModel
     var markAsFavourite: (RestaurantViewModel) -> Void
     
@@ -18,12 +25,13 @@ struct NearbyRestaurantListItemView: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 64, height: 64)
+            .frame(width: Constants.imageSize, height: Constants.imageSize)
             .aspectRatio(contentMode: .fill)
-            .cornerRadius(12)
+            .cornerRadius(Constants.imageCornerRadius)
+            
             VStack {
                 HStack {
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading, spacing: Constants.textSpacing) {
                         Text(restaurantViewModel.name)
                             .font(.headline)
                             .lineLimit(1)
@@ -44,14 +52,14 @@ struct NearbyRestaurantListItemView: View {
                               "favourite_filled" :
                               "favourite_outlined")
                             .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.black)
+                            .frame(width: Constants.favouritesIconSize, height: Constants.favouritesIconSize)
+                            .foregroundColor(.primary)
                     }
                 }
                 .padding(.horizontal)
                 
                 Divider()
-                    .padding(.leading, 16)
+                    .padding(.leading)
             }
             .padding(0)
         }
