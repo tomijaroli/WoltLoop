@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NearbyRestaurantsView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    
     @ObservedObject var viewModel: NearbyRestaurantsViewModel
     
     init(viewModel: NearbyRestaurantsViewModel) {
@@ -39,6 +41,18 @@ struct NearbyRestaurantsView: View {
                     .accessibilityLabel(viewModel.pageTitle)
                 }
                 .navigationTitle(viewModel.pageTitle)
+            }
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .active:
+                viewModel.didEnterForeground()
+            case .background:
+                viewModel.didEnterBackground()
+            case .inactive:
+                fallthrough
+            @unknown default:
+                print("Breaking API changes has been introduced to ScenePhase")
             }
         }
     }

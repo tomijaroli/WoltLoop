@@ -11,6 +11,7 @@ typealias TimerFactory = (TimeInterval, @escaping((TimerProtocol) -> Void)) -> T
 
 /// @mockable
 protocol TimerProtocol {
+    var isValid: Bool { get }
     static func scheduledTimer(withTimeInterval interval: TimeInterval, repeats: Bool, block: @escaping (Timer) -> Void) -> Timer
     func invalidate()
 }

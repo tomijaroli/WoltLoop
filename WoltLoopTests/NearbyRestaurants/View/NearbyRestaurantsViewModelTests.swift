@@ -120,6 +120,22 @@ class NearbyRestaurantsViewModelTests: XCTestCase {
         XCTAssertEqual(mockFavouriteRestaurantsUseCase.toggleFavouriteCallCount, 1)
     }
     
+    func test_whenDidEnterForeground_thenLocationProviderIsResumed() {
+        viewModel = makeViewModel()
+        
+        viewModel.didEnterForeground()
+        
+        XCTAssertEqual(mockLocationProvider.resumeCallCount, 1)
+    }
+    
+    func test_whenDidEnterBackground_thenLocationProviderIsPaused() {
+        viewModel = makeViewModel()
+        
+        viewModel.didEnterBackground()
+        
+        XCTAssertEqual(mockLocationProvider.pauseCallCount, 1)
+    }
+    
     private func makeViewModel() -> NearbyRestaurantsViewModel {
         .init(
             nearbyRestaurantsUseCase: mockNearbyRestaurantsUseCase,

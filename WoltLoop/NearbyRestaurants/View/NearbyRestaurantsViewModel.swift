@@ -54,4 +54,12 @@ class NearbyRestaurantsViewModel: ObservableObject {
     func markRestaurantFavourite(restaurant: RestaurantViewModel) {
         favouriteRestaurantsUseCase.toggleFavourite(for: restaurant)
     }
+    
+    func didEnterForeground() {
+        locationProvider.resume()
+    }
+    
+    func didEnterBackground() {
+        locationProvider.pause()
+    }
 }

@@ -11,6 +11,8 @@ import Combine
 /// @mockable
 protocol LocationProvider {
     var locationPublisher: AnyPublisher<Location, Never> { get }
+    func pause()
+    func resume()
 }
 
 final class LoopedLocationProvider {
@@ -53,6 +55,14 @@ final class LoopedLocationProvider {
 extension LoopedLocationProvider: LocationProvider {
     var locationPublisher: AnyPublisher<Location, Never> {
         currentLocationSubject.eraseToAnyPublisher()
+    }
+    
+    func pause() {
+        rotationTimer?.invalidate()
+    }
+    
+    func resume() {
+        startRotating()
     }
 }
 
