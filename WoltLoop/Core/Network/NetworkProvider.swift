@@ -21,14 +21,36 @@ class NetworkProvider<E: Endpoint> {
     private let session: URLSession
     private let errorLogger: ErrorLogger
     
-    public init(decoder: JSONDecoder, session: URLSession, errorLogger: ErrorLogger) {
+    init(decoder: JSONDecoder, session: URLSession, errorLogger: ErrorLogger) {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         self.decoder = decoder
         self.session = session
         self.errorLogger = errorLogger
     }
     
-    internal func makeURL(for endpoint: E) -> URL? {
+    func request<T: Decodable>(endpoint: E) -> AnyPublisher<T, NetworkError> {
+        guard let request = makeRequest(for: endpoint) else {
+            return Fail(error: NetworkError.invalidRequest).eraseToAnyPublisher()
+        }
+        
+        return session.dataTaskPublisher(for: request)
+            .mapError { _ in return NetworkError.invalidRequest }
+            .flatMap { data, response -> AnyPublisher<Data, Error> in
+                self.processResponseStatus(data: data, response: response)
+            }
+            .decode(type: T.self, decoder: decoder)
+            .map {
+                print($0)
+                return $0
+            }
+            .catch { error in
+                return Fail(error: NetworkError.parseError(reason: error))
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func makeURL(for endpoint: E) -> URL? {
         var partialURL = endpoint.baseURL.appendingPathComponent(endpoint.apiVersion)
         partialURL = partialURL.appendingPathComponent(endpoint.path)
         
@@ -51,7 +73,7 @@ class NetworkProvider<E: Endpoint> {
         return url
     }
     
-    internal func makeRequest(for endpoint: E) -> URLRequest? {
+    private func makeRequest(for endpoint: E) -> URLRequest? {
         guard let url = makeURL(for: endpoint) else { return nil }
         
         var request = URLRequest(url: url)
@@ -60,39 +82,7 @@ class NetworkProvider<E: Endpoint> {
         return request
     }
     
-    internal func configureSession(for endpoint: E) -> URLSessionConfiguration {
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = endpoint.headers
-        configuration.urlCache = .shared
-        configuration.requestCachePolicy = .reloadRevalidatingCacheData
-        configuration.timeoutIntervalForRequest = 60
-        configuration.timeoutIntervalForResource = 120
-        return configuration
-    }
-    
-    internal func request<T: Decodable>(endpoint: E) -> AnyPublisher<T, NetworkError> {
-        guard let request = makeRequest(for: endpoint) else {
-            return Fail(error: NetworkError.invalidRequest).eraseToAnyPublisher()
-        }
-        
-        return session.dataTaskPublisher(for: request)
-            .mapError { _ in return NetworkError.invalidRequest }
-            .flatMap { data, response -> AnyPublisher<Data, Error> in
-                self.processResponse(data: data, response: response)
-            }
-            .decode(type: T.self, decoder: decoder)
-            .map {
-                print($0)
-                return $0
-            }
-            .catch { error in
-                return Fail(error: NetworkError.parseError(reason: error))
-                    .eraseToAnyPublisher()
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    private func processResponse(data: Data, response: URLResponse) -> AnyPublisher<Data, Error> {
+    private func processResponseStatus(data: Data, response: URLResponse) -> AnyPublisher<Data, Error> {
         guard let response = response as? HTTPURLResponse else {
             return Fail(error: NetworkError.invalidResponse)
                 .eraseToAnyPublisher()

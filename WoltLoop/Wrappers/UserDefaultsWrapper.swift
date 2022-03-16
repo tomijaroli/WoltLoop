@@ -32,7 +32,7 @@ public struct UserDefault<Value: Codable> {
         self.container = userDefaults
     }
     
-    private func read(forKey key: String)-> Any? {
+    private func read(forKey key: String) -> Any? {
         let decoder = JSONDecoder()
         if let data = container.object(forKey: key) as? Data,
            let loadedValue = try? decoder.decode(Value.self, from: data) {
